@@ -1,9 +1,16 @@
-# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/palindrome-number/description/ |
-# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # ~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/convert-the-temperature/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+# ~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+"""
+Kelvin = Celsius + 273.15
+Fahrenheit = Celsius * 1.80 + 32.00
+"""
 # class Solution:
-#     def isPalindrome(self, x: int) -> bool:
-#         x_str = str(x)
-#         return x_str == x_str[::-1]
-# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#     def convertTemperature(self, celsius: float) -> List[float]:
+#         kelvin = celsius + 273.15
+#         fahrenheit = celsius * 1.80 + 32.00
+#         return kelvin, fahrenheit
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
