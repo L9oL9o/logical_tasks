@@ -1,10 +1,13 @@
-# # https://leetcode.com/problems/defanging-an-ip-address/
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/defanging-an-ip-address/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def defangIPaddr(self, address: str) -> str:
 #         return address.replace('.', '[.]')
 
-
-# # https://leetcode.com/problems/build-array-from-permutation/description/
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/build-array-from-permutation/description/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def buildArray(self, nums: List[int]) -> List[int]:
 #         new_list = []
@@ -12,8 +15,9 @@
 #             new_list.append(nums[i])
 #         return new_list
 
-
-# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def finalValueAfterOperations(self, operations: List[str]) -> int:
 #         count = 0
@@ -24,8 +28,9 @@
 #                 count -=1
 #         return count
 
-
-# # https://leetcode.com/problems/maximum-score-after-splitting-a-string/
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/maximum-score-after-splitting-a-string/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def maxScore(self, s: str) -> int:
 #         max_score = 0
@@ -43,8 +48,9 @@
 #
 #         return max_score
 
-
-# # https://leetcode.com/problems/path-crossing/description/?envType=daily-question&envId=2023-12-23
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/path-crossing/description/?envType=daily-question&envId=2023-12-23 |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def isPathCrossing(self, path: str) -> bool:
 #         directions = {'N': (0, 1), 'S': (0, -1), 'E': (1, 0), 'W': (-1, 0)}
@@ -62,8 +68,74 @@
 #
 #         return False
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/decode-ways/?envType=daily-question&envId=2023-12-25 |
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# def num_decodings(s):
+#     if not s or s[0] == '0':
+#         return 0
+#
+#     n = len(s)
+#     dp = [0] * (n + 1)
+#     dp[0] = 1
+#     dp[1] = 1
+#
+#     for i in range(2, n + 1):
+#         # Check if the current digit is not '0'
+#         if s[i - 1] != '0':
+#             dp[i] += dp[i - 1]
+#
+#         # Check if the previous two digits form a valid mapping
+#         two_digit = int(s[i - 2:i])
+#         if 10 <= two_digit <= 26:
+#             dp[i] += dp[i - 2]
+#
+#     return dp[n]
+#
+# # Example usage:
+# encoded_message = "11106"
+# ways_to_decode = num_decodings(encoded_message)
+# print(ways_to_decode)
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# class Solution:
+#     def numDecodings(self, s: str) -> int:
+#
+#         def check_double(s):
+#             if s[0] == '0':
+#                 return False
+#             if s[0] == '1':
+#                 return True
+#             if s[0] == '2':
+#                 if s[1] <='6':
+#                     return True
+#                 else:
+#                     return False
+#             return False
+#         def check_single(s):
+#             if s == '0':
+#                 return False
+#             return True
+#
+#         n = len(s)
+#         dp = [0 for _ in range(n)]
+#         for i in range(n):
+#             if check_single(s[i]):
+#                 if i-1 >= 0:
+#                     dp[i] += dp[i-1]
+#                 else:
+#                     dp[i] += 1
+#             if i-1 >= 0 and check_double(s[i-1:i+1]):
+#                 if i-2 >= 0:
+#                     dp[i] += dp[i-2]
+#                 else:
+#                     dp[i] += 1
+#         return dp[-1]
+# #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 ~~~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/
 # class Solution:
 #     def finalValueAfterOperations(self, operations: List[str]) -> int:
 #         count = 0
@@ -76,6 +148,31 @@
 
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/two-sum/description/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# #~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         for i in range(len(nums)):
+#             num1 = nums[i]
+#             num2 = nums[i+1]
+#             if num1 + num2 == target:
+#                 return [num1, num2]
 
-# # https://leetcode.com/problems/two-sum/description/
+# #~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         n = len(nums)
+#         for i in range(n - 1):
+#             for j in range(i + 1, n):
+#                 num1 = nums[i]
+#                 num2 = nums[j]
+#                 if num1 + num2 == target:
+#                     return [i, j]
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
