@@ -1,23 +1,30 @@
-# https://leetcode.com/problems/two-sum/description/
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/longest-substring-without-repeating-characters/description/ |
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 
 # #~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # class Solution:
-#     def twoSum(self, nums: List[int], target: int) -> List[int]:
-#         for i in range(len(nums)):
-#             num1 = nums[i]
-#             num2 = nums[i+1]
-#             if num1 + num2 == target:
-#                 return [num1, num2]
+#     def lengthOfLongestSubstring(self, s: str) -> int:
+#         set_s = set(s)
+#         if "p" in set_s:
+#             set_s.remove("p" or "P")
+#         len_s = len(set_s)
+#         return len_s
 
 # #~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # class Solution:
-#     def twoSum(self, nums: List[int], target: int) -> List[int]:
-#         n = len(nums)
-#         for i in range(n - 1):
-#             for j in range(i + 1, n):
-#                 num1 = nums[i]
-#                 num2 = nums[j]
-#                 if num1 + num2 == target:
-#                     return [i, j]
+#     def lengthOfLongestSubstring(self, s: str) -> int:
+#         n = len(s)
+#         char_index_map = {}
+#         max_length = 0
+#         start = 0
+#
+#         for end in range(n):
+#             if s[end] in char_index_map and char_index_map[s[end]] >= start:
+#                 start = char_index_map[s[end]] + 1
+#
+#             char_index_map[s[end]] = end
+#             max_length = max(max_length, end - start + 1)
+#
+#         return max_length
 # # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
