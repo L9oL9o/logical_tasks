@@ -1,0 +1,81 @@
+# # https://leetcode.com/problems/defanging-an-ip-address/
+# class Solution:
+#     def defangIPaddr(self, address: str) -> str:
+#         return address.replace('.', '[.]')
+
+
+# # https://leetcode.com/problems/build-array-from-permutation/description/
+# class Solution:
+#     def buildArray(self, nums: List[int]) -> List[int]:
+#         new_list = []
+#         for i in nums:
+#             new_list.append(nums[i])
+#         return new_list
+
+
+# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/
+# class Solution:
+#     def finalValueAfterOperations(self, operations: List[str]) -> int:
+#         count = 0
+#         for i in operations :
+#             if "++" in operations[i]:
+#                 count +=1
+#             elif "--" in operations[i]:
+#                 count -=1
+#         return count
+
+
+# # https://leetcode.com/problems/maximum-score-after-splitting-a-string/
+# class Solution:
+#     def maxScore(self, s: str) -> int:
+#         max_score = 0
+#         zeros_on_left = 0
+#         ones_on_right = s.count('1')
+#
+#         for i in range(len(s) - 1):
+#             if s[i] == '0':
+#                 zeros_on_left += 1
+#             else:
+#                 ones_on_right -= 1
+#
+#             score = zeros_on_left + ones_on_right
+#             max_score = max(max_score, score)
+#
+#         return max_score
+
+
+# # https://leetcode.com/problems/path-crossing/description/?envType=daily-question&envId=2023-12-23
+# class Solution:
+#     def isPathCrossing(self, path: str) -> bool:
+#         directions = {'N': (0, 1), 'S': (0, -1), 'E': (1, 0), 'W': (-1, 0)}
+#         visited = {(0, 0)}
+#         x, y = 0, 0
+#
+#         for direction in path:
+#             dx, dy = directions[direction]
+#             x, y = x + dx, y + dy
+#
+#             if (x, y) in visited:
+#                 return True
+#
+#             visited.add((x, y))
+#
+#         return False
+
+~~~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# # https://leetcode.com/problems/final-value-of-variable-after-performing-operations/description/
+# class Solution:
+#     def finalValueAfterOperations(self, operations: List[str]) -> int:
+#         count = 0
+#         for i in range(len(operations)):
+#             if "--" in operations[i]:
+#                 count -=1
+#             elif "++" in operations[i]:
+#                 count +=1
+#         return count
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# # https://leetcode.com/problems/two-sum/description/
