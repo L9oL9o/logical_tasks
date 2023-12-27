@@ -264,4 +264,41 @@ Fahrenheit = Celsius * 1.80 + 32.00
 
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/reverse-integer/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def reverse(self, x: int) -> int:
+#         if x <= -1:
+#             x = x * -1
+#             x = str(x)[::-1]
+#             x = int(x)*-1
+#             return x
+#         elif x > 0:
+#             x = str(x)[::-1]
+#             x = int(x)
+#             return x
+# ~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def reverse(self, x: int) -> int:
+#         INT_MAX = 2 ** 31 - 1
+#         INT_MIN = -2 ** 31
+#
+#         # Convert the integer to a string
+#         str_x = str(x)
+#
+#         # Handle the sign and reverse the string
+#         if x < 0:
+#             reversed_str = '-' + str_x[:0:-1]
+#         else:
+#             reversed_str = str_x[::-1]
+#
+#         # Convert the reversed string back to an integer
+#         reversed_int = int(reversed_str)
+#
+#         # Check if the result is within the 32-bit integer range
+#         if reversed_int > INT_MAX or reversed_int < INT_MIN:
+#             return 0
+#
+#         return reversed_int
