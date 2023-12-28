@@ -343,6 +343,30 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 l = r
 #         return res
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# def minCost0(colors, neededTime):
+#     C = colors
+#     T = neededTime
+#     cj = C[0]
+#     maxt = T[0]
+#     s = 0
+#     for ci, ti in zip(C[1:], T[1:]):
+#         #print("1 ci,cj,ti,tj",(ci,cj,ti,maxt,s))
+#         if ci != cj:
+#             maxt = ti
+#             cj = ci
+#         else:
+#             if ti > maxt:
+#                 s += maxt
+#                 maxt = ti
+#             else:
+#                 s += ti
+#         #print("2 ci,cj,ti,tj",(ci,cj,ti,maxt,s))
+#     return s
+# class Solution:
+#     def minCost(self, colors: str, neededTime: List[int]) -> int:
+#         return minCost0(colors, neededTime)
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -485,6 +509,31 @@ from typing import List
 
 
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/description/?envType=daily-question&envId=2023-12-26|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+#         MOD = 10 ** 9 + 7
+#
+#         # dp[i][j]: number of ways to get sum j with i dice
+#         dp = [[0] * (target + 1) for _ in range(n + 1)]
+#
+#         # Base case: With 0 dice, the sum 0 is the only way
+#         dp[0][0] = 1
+#
+#         for i in range(1, n + 1):
+#             for j in range(1, target + 1):
+#                 # Try all possible outcomes for the current die
+#                 for face in range(1, k + 1):
+#                     if j - face >= 0:
+#                         dp[i][j] = (dp[i][j] + dp[i - 1][j - face]) % MOD
+#
+#         return dp[n][target]
+
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/string-compression-ii/submissions/1130341212/?envType=daily-question&envId=2023-12-28 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -511,3 +560,21 @@ from typing import List
 #             cache[(i, k, prev, prev_cnt)] = res
 #             return res
 #         return count(0, k, "", 0)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
+#         e = lambda x: 1 if x < 2 else 2 if x < 10 else 3 if x < 100 else 4
+#         @cache
+#         def f(i, k):
+#             if i < 0: return 0
+#             r = f(i-1, k-1) if k else 9e9
+#             x = 0
+#             for j in range(i, -1, -1):
+#                 if s[i] == s[j]: x += 1
+#                 elif k == 0: return r
+#                 else: k -= 1
+#                 r = min(r, f(j-1, k) + e(x))
+#             return r
+#         return f(len(s)-1, k)
+
+
