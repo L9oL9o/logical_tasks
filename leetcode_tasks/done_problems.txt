@@ -560,7 +560,7 @@ from typing import List
 #             cache[(i, k, prev, prev_cnt)] = res
 #             return res
 #         return count(0, k, "", 0)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
 #     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
 #         e = lambda x: 1 if x < 2 else 2 if x < 10 else 3 if x < 100 else 4
@@ -578,3 +578,51 @@ from typing import List
 #         return f(len(s)-1, k)
 
 
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/zigzag-conversion/submissions/1130703655/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def convert(self, s: str, numRows: int) -> str:
+#         if numRows == 1 or len(s) <= numRows:
+#             return s
+#
+#         rows = [''] * numRows
+#         current_row, going_down = 0, False
+#
+#         for char in s:
+#             rows[current_row] += char
+#
+#             if current_row == 0 or current_row == numRows - 1:
+#                 going_down = not going_down
+#
+#             current_row += 1 if going_down else -1
+#
+#         result = ''.join(rows)
+#         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/?envType=daily-question&envId=2023-12-29 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+#         n = len(jobDifficulty)
+#         if n < d:
+#             return -1
+#
+#         # dp[i][j]: minimum difficulty to schedule i jobs in j days
+#         dp = [[float('inf')] * (d + 1) for _ in range(n + 1)]
+#         dp[0][0] = 0
+#
+#         for i in range(1, n + 1):
+#             for k in range(1, d + 1):
+#                 max_difficulty = 0
+#                 for j in range(i - 1, -1, -1):
+#                     max_difficulty = max(max_difficulty, jobDifficulty[j])
+#                     dp[i][k] = min(dp[i][k], dp[j][k - 1] + max_difficulty)
+#
+#         return dp[n][d] if dp[n][d] != float('inf') else -1
