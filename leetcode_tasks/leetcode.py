@@ -1,16 +1,22 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/largest-substring-between-two-equal-characters/?envType=daily-question&envId=2023-12-31 |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!!~~~~~|
+# # https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/description/?envType=daily-question&envId=2023-12-29 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
-#         first_occurrence = {}
-#         max_length = -1
+#     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+#         n = len(jobDifficulty)
+#         if n < d:
+#             return -1
 #
-#         for i, char in enumerate(s):
-#             if char in first_occurrence:
-#                 max_length = max(max_length, i - first_occurrence[char] - 1)
-#             else:
-#                 first_occurrence[char] = i
+#         # dp[i][j]: minimum difficulty to schedule i jobs in j days
+#         dp = [[float('inf')] * (d + 1) for _ in range(n + 1)]
+#         dp[0][0] = 0
 #
-#         return max_length
+#         for i in range(1, n + 1):
+#             for k in range(1, d + 1):
+#                 max_difficulty = 0
+#                 for j in range(i - 1, -1, -1):
+#                     max_difficulty = max(max_difficulty, jobDifficulty[j])
+#                     dp[i][k] = min(dp[i][k], dp[j][k - 1] + max_difficulty)
+#
+#         return dp[n][d] if dp[n][d] != float('inf') else -1
