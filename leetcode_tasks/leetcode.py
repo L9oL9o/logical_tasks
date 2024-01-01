@@ -1,22 +1,52 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!!~~~~~|
-# # https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/description/?envType=daily-question&envId=2023-12-29 |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/string-to-integer-atoi/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
-#         n = len(jobDifficulty)
-#         if n < d:
-#             return -1
+#     def myAtoi(self, s: str) -> int:
+#         # Step 1: Read in and ignore any leading whitespace.
+#         i = 0
+#         while i < len(s) and s[i].isspace():
+#             i += 1
 #
-#         # dp[i][j]: minimum difficulty to schedule i jobs in j days
-#         dp = [[float('inf')] * (d + 1) for _ in range(n + 1)]
-#         dp[0][0] = 0
+#         # Step 2: Check if the next character is '-' or '+'
+#         if i < len(s) and (s[i] == '-' or s[i] == '+'):
+#             sign = -1 if s[i] == '-' else 1
+#             i += 1
+#         else:
+#             sign = 1
 #
-#         for i in range(1, n + 1):
-#             for k in range(1, d + 1):
-#                 max_difficulty = 0
-#                 for j in range(i - 1, -1, -1):
-#                     max_difficulty = max(max_difficulty, jobDifficulty[j])
-#                     dp[i][k] = min(dp[i][k], dp[j][k - 1] + max_difficulty)
+#         # Step 3: Read in the characters until the next non-digit character or end of input
+#         result = 0
+#         while i < len(s) and s[i].isdigit():
+#             digit = int(s[i])
+#             # Step 4: Convert digits into an integer
+#             result = result * 10 + digit
+#             i += 1
 #
-#         return dp[n][d] if dp[n][d] != float('inf') else -1
+#         # Step 5: Change the sign if necessary
+#         result *= sign
+#
+#         # Step 6: Clamp the result to the 32-bit signed integer range
+#         INT_MAX = 2**31 - 1
+#         INT_MIN = -2**31
+#         result = max(min(result, INT_MAX), INT_MIN)
+#
+#         return result
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# import re
+#
+# class Solution:
+#     def myAtoi(self, s: str) -> int:
+#         s = s.strip()
+#         s = re.findall("^[+\-]?\d+",s)
+#         if not s: return 0
+#         n = int("".join(s))
+#         MAX = pow(2,31)-1
+#         MIN = -pow(2,31)
+#         if n>MAX: return MAX
+#         if n<MIN: return MIN
+#         return n
+
+
