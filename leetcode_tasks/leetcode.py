@@ -1,33 +1,26 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/substring-with-concatenation-of-all-words/ |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/trapping-rain-water/description/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def findSubstring(self, s: str, words: List[str]) -> List[int]:
-#         if not s or not words:
-#             return []
+#     def trap(self, height: List[int]) -> int:
+#         if not height or len(height) < 3:
+#             return 0
 #
-#         word_len = len(words[0])
-#         word_count = len(words)
-#         total_len = word_len * word_count
-#         word_freq = Counter(words)
+#         n = len(height)
+#         left, right = 0, n - 1
+#         left_max, right_max = height[left], height[right]
+#         water = 0
 #
-#         result = []
+#         while left < right:
+#             left_max = max(left_max, height[left])
+#             right_max = max(right_max, height[right])
 #
-#         for i in range(word_len):
-#             left, right = i, i
-#             current_window = Counter()
+#             if left_max < right_max:
+#                 water += left_max - height[left]
+#                 left += 1
+#             else:
+#                 water += right_max - height[right]
+#                 right -= 1
 #
-#             while right + word_len <= len(s):
-#                 current_word = s[right:right + word_len]
-#                 right += word_len
-#                 current_window[current_word] += 1
-#
-#                 while current_window[current_word] > word_freq[current_word]:
-#                     current_window[s[left:left + word_len]] -= 1
-#                     left += word_len
-#
-#                 if right - left == total_len:
-#                     result.append(left)
-#
-#         return result
+#         return water

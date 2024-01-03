@@ -135,3 +135,79 @@
 #                     result.append(left)
 #
 #         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/longest-valid-parentheses/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def longestValidParentheses(self, s: str) -> int:
+#         if not s:
+#             return 0
+#
+#         n = len(s)
+#         dp = [0] * n
+#         max_len = 0
+#
+#         for i in range(1, n):
+#             if s[i] == ')':
+#                 if s[i - 1] == '(':
+#                     dp[i] = dp[i - 2] + 2 if i >= 2 else 2
+#                 elif i - dp[i - 1] > 0 and s[i - dp[i - 1] - 1] == '(':
+#                     dp[i] = dp[i - 1] + dp[i - dp[i - 1] - 2] + 2 if i - dp[i - 1] >= 2 else dp[i - 1] + 2
+#
+#                 max_len = max(max_len, dp[i])
+#
+#         return max_len
+#
+# # Example usage:
+# solution = Solution()
+#
+# # Example 1
+# s1 = "(()"
+# result1 = solution.longestValidParentheses(s1)
+# # Output: 2
+#
+# # Example 2
+# s2 = ")()())"
+# result2 = solution.longestValidParentheses(s2)
+# # Output: 4
+#
+# # Example 3
+# s3 = ""
+# result3 = solution.longestValidParentheses(s3)
+# # Output: 0
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/trapping-rain-water/description/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def trap(self, height: List[int]) -> int:
+#         if not height or len(height) < 3:
+#             return 0
+#
+#         n = len(height)
+#         left, right = 0, n - 1
+#         left_max, right_max = height[left], height[right]
+#         water = 0
+#
+#         while left < right:
+#             left_max = max(left_max, height[left])
+#             right_max = max(right_max, height[right])
+#
+#             if left_max < right_max:
+#                 water += left_max - height[left]
+#                 left += 1
+#             else:
+#                 water += right_max - height[right]
+#                 right -= 1
+#
+#         return water
+
+
+
