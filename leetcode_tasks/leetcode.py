@@ -1,52 +1,26 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/valid-parentheses/ |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/regular-expression-matching/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def isValid(self, s: str) -> bool:
-#         brackets1 = "()"
-#         brackets2 = "[]"
-#         brackets3 = "{}"
-#         check_bracket = ""
-#         for i in range(len(s)):
-#             for j in range(len(s) + 1):
-#                 if s[i] and s[j] == brackets1:
-#                     check_bracket += s[i], s[j]
-#                 elif s[i] and s[j] == brackets2:
-#                     check_bracket += s[i], s[j]
-#                 elif s[i] and s[j] == brackets3:
-#                     check_bracket += s[i], s[j]
-#         return check_bracket
-
-# ~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# class Solution:
-#     def isValid(self, s: str) -> bool:
-#         stack = []
-#         bracket_pairs = {')': '(', '}': '{', ']': '['}
-#         for char in s:
-#             if char in bracket_pairs.values():
-#                 stack.append(char)
-#             elif char in bracket_pairs.keys():
-#                 if not stack or bracket_pairs[char] != stack.pop():
-#                     return False
-#             else:
-#                 # If the character is not an open or close bracket, ignore it
-#                 continue
-#         # The string is valid if the stack is empty after processing all characters
-#         return not stack
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# class Solution:
-#     def isValid(self, s: str) -> bool:
-#         check = {
-#             '(': ')',
-#             '{': '}',
-#             '[': ']'
-#         }
-#         stack = []
-#         for c in s:
-#             if stack and stack[-1] in check and check[stack[-1]] == c:
-#                 stack.pop()
-#             else:
-#                 stack.append(c)
-#         return not stack
+#     def isMatch(self, s: str, p: str) -> bool:
+#         # Create a 2D DP array to store matching results
+#         dp = [[False] * (len(p) + 1) for _ in range(len(s) + 1)]
+#
+#         # Empty string and empty pattern match
+#         dp[0][0] = True
+#
+#         # Handle patterns with '*'
+#         for j in range(1, len(p) + 1):
+#             if p[j - 1] == '*':
+#                 dp[0][j] = dp[0][j - 2]
+#
+#         # Fill in the DP array
+#         for i in range(1, len(s) + 1):
+#             for j in range(1, len(p) + 1):
+#                 if p[j - 1] == s[i - 1] or p[j - 1] == '.':
+#                     dp[i][j] = dp[i - 1][j - 1]
+#                 elif p[j - 1] == '*':
+#                     dp[i][j] = dp[i][j - 2] or (dp[i - 1][j] if s[i - 1] == p[j - 2] or p[j - 2] == '.' else False)
+#
+#         return dp[-1][-1]

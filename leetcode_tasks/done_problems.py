@@ -387,21 +387,8 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #             else:
 #                 low = partitionX + 1
 #
-# Example usage:
-# solution = Solution()
-#
-# nums1_1, nums2_1 = [1, 3], [2]
-# nums1_2, nums2_2 = [1, 2], [3, 4]
-#
-# result1 = solution.findMedianSortedArrays(nums1_1, nums2_1)
-# result2 = solution.findMedianSortedArrays(nums1_2, nums2_2)
-#
-# print("Example 1:", result1)
-# print("Example 2:", result2)
 
 
-# Optimal solution
-from typing import List
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # def solve():
@@ -1024,3 +1011,28 @@ from typing import List
 #             else:
 #                 stack.append(c)
 #         return not stack
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/longest-common-prefix/description/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         if not strs:
+#             return ""
+#         # Sort the strings to compare only the first and last strings
+#         strs.sort()
+#         first_str = strs[0]
+#         last_str = strs[-1]
+#         common_prefix = []
+#         for i in range(len(first_str)):
+#             if i < len(last_str) and first_str[i] == last_str[i]:
+#                 common_prefix.append(first_str[i])
+#             else:
+#                 break
+#         return ''.join(common_prefix)
+
+
+
