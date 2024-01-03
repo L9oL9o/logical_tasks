@@ -1,26 +1,37 @@
-# ~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/regular-expression-matching/ |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/merge-k-sorted-lists |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# from queue import PriorityQueue
+# from typing import List, Optional
+#
+# # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+#
 # class Solution:
-#     def isMatch(self, s: str, p: str) -> bool:
-#         # Create a 2D DP array to store matching results
-#         dp = [[False] * (len(p) + 1) for _ in range(len(s) + 1)]
+#     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+#         # Create a priority queue (min-heap) to keep track of the current minimum node
+#         min_heap = PriorityQueue()
 #
-#         # Empty string and empty pattern match
-#         dp[0][0] = True
+#         # Add the first node from each list to the min-heap
+#         for i, lst in enumerate(lists):
+#             if lst:
+#                 min_heap.put((lst.val, i, lst))
 #
-#         # Handle patterns with '*'
-#         for j in range(1, len(p) + 1):
-#             if p[j - 1] == '*':
-#                 dp[0][j] = dp[0][j - 2]
+#         # Dummy node to simplify the code
+#         dummy = ListNode()
+#         current = dummy
 #
-#         # Fill in the DP array
-#         for i in range(1, len(s) + 1):
-#             for j in range(1, len(p) + 1):
-#                 if p[j - 1] == s[i - 1] or p[j - 1] == '.':
-#                     dp[i][j] = dp[i - 1][j - 1]
-#                 elif p[j - 1] == '*':
-#                     dp[i][j] = dp[i][j - 2] or (dp[i - 1][j] if s[i - 1] == p[j - 2] or p[j - 2] == '.' else False)
+#         while not min_heap.empty():
+#             val, index, node = min_heap.get()
+#             current.next = node
+#             current = current.next
 #
-#         return dp[-1][-1]
+#             # Move to the next node in the list
+#             if node.next:
+#                 min_heap.put((node.next.val, index, node.next))
+#
+#         return dummy.next
