@@ -1,26 +1,39 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/trapping-rain-water/description/ |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/n-queens/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~|
 # class Solution:
-#     def trap(self, height: List[int]) -> int:
-#         if not height or len(height) < 3:
-#             return 0
+#     def solveNQueens(self, n: int) -> List[List[str]]:
+#         def is_valid(board, row, col, n):
+#             # Check if there is a queen in the same column
+#             for i in range(row):
+#                 if board[i][col] == 'Q':
+#                     return False
 #
-#         n = len(height)
-#         left, right = 0, n - 1
-#         left_max, right_max = height[left], height[right]
-#         water = 0
+#             # Check if there is a queen in the left diagonal
+#             for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+#                 if board[i][j] == 'Q':
+#                     return False
 #
-#         while left < right:
-#             left_max = max(left_max, height[left])
-#             right_max = max(right_max, height[right])
+#             # Check if there is a queen in the right diagonal
+#             for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
+#                 if board[i][j] == 'Q':
+#                     return False
 #
-#             if left_max < right_max:
-#                 water += left_max - height[left]
-#                 left += 1
-#             else:
-#                 water += right_max - height[right]
-#                 right -= 1
+#             return True
 #
-#         return water
+#         def solve(board, row, n, result):
+#             if row == n:
+#                 result.append(["".join(row) for row in board])
+#                 return
+#
+#             for col in range(n):
+#                 if is_valid(board, row, col, n):
+#                     board[row][col] = 'Q'
+#                     solve(board, row + 1, n, result)
+#                     board[row][col] = '.'
+#
+#         result = []
+#         board = [['.'] * n for _ in range(n)]
+#         solve(board, 0, n, result)
+#         return result

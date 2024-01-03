@@ -1138,3 +1138,119 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                     result.append(left)
 #
 #         return result
+
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/longest-valid-parentheses/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def longestValidParentheses(self, s: str) -> int:
+#         if not s:
+#             return 0
+#
+#         n = len(s)
+#         dp = [0] * n
+#         max_len = 0
+#
+#         for i in range(1, n):
+#             if s[i] == ')':
+#                 if s[i - 1] == '(':
+#                     dp[i] = dp[i - 2] + 2 if i >= 2 else 2
+#                 elif i - dp[i - 1] > 0 and s[i - dp[i - 1] - 1] == '(':
+#                     dp[i] = dp[i - 1] + dp[i - dp[i - 1] - 2] + 2 if i - dp[i - 1] >= 2 else dp[i - 1] + 2
+#
+#                 max_len = max(max_len, dp[i])
+#
+#         return max_len
+#
+# # Example usage:
+# solution = Solution()
+#
+# # Example 1
+# s1 = "(()"
+# result1 = solution.longestValidParentheses(s1)
+# # Output: 2
+#
+# # Example 2
+# s2 = ")()())"
+# result2 = solution.longestValidParentheses(s2)
+# # Output: 4
+#
+# # Example 3
+# s3 = ""
+# result3 = solution.longestValidParentheses(s3)
+# # Output: 0
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/trapping-rain-water/description/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def trap(self, height: List[int]) -> int:
+#         if not height or len(height) < 3:
+#             return 0
+#
+#         n = len(height)
+#         left, right = 0, n - 1
+#         left_max, right_max = height[left], height[right]
+#         water = 0
+#
+#         while left < right:
+#             left_max = max(left_max, height[left])
+#             right_max = max(right_max, height[right])
+#
+#             if left_max < right_max:
+#                 water += left_max - height[left]
+#                 left += 1
+#             else:
+#                 water += right_max - height[right]
+#                 right -= 1
+#
+#         return water
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/n-queens/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~|
+# class Solution:
+#     def solveNQueens(self, n: int) -> List[List[str]]:
+#         def is_valid(board, row, col, n):
+#             # Check if there is a queen in the same column
+#             for i in range(row):
+#                 if board[i][col] == 'Q':
+#                     return False
+#
+#             # Check if there is a queen in the left diagonal
+#             for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+#                 if board[i][j] == 'Q':
+#                     return False
+#
+#             # Check if there is a queen in the right diagonal
+#             for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
+#                 if board[i][j] == 'Q':
+#                     return False
+#
+#             return True
+#
+#         def solve(board, row, n, result):
+#             if row == n:
+#                 result.append(["".join(row) for row in board])
+#                 return
+#
+#             for col in range(n):
+#                 if is_valid(board, row, col, n):
+#                     board[row][col] = 'Q'
+#                     solve(board, row + 1, n, result)
+#                     board[row][col] = '.'
+#
+#         result = []
+#         board = [['.'] * n for _ in range(n)]
+#         solve(board, 0, n, result)
+#         return result
