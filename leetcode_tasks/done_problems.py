@@ -893,3 +893,79 @@ from typing import List
 #                 seen.add(num)
 #
 #         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/roman-to-integer/description/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def romanToInt(self, s: str) -> int:
+#         rome_numbers = {
+#             "I": 1,
+#             "V": 5,
+#             "X": 10,
+#             "L": 50,
+#             "C": 100,
+#             "D": 500,
+#             "M": 1000, }
+#         roman_int = 0
+#         for i in range(len(s)):
+#             if s[i] == "I":
+#                 roman_int += 1
+#             elif s[i] == "V":
+#                 roman_int += 5
+#             elif s[i] == "X":
+#                 roman_int += 10
+#             elif s[i] == "L":
+#                 roman_int += 50
+#             elif s[i] == "C":
+#                 roman_int += 100
+#             elif s[i] == "D":
+#                 roman_int += 500
+#             elif s[i] == "M":
+#                 roman_int += 1000
+#         return roman_int
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def romanToInt(self, s: str) -> int:
+#         roman_values = {
+#             'I': 1,
+#             'V': 5,
+#             'X': 10,
+#             'L': 50,
+#             'C': 100,
+#             'D': 500,
+#             'M': 1000
+#         }
+#         result = 0
+#         prev_value = 0
+#         for char in s:
+#             value = roman_values[char]
+#             if value > prev_value:
+#                 # If a smaller value precedes a larger value, subtract the smaller value
+#                 result += value - 2 * prev_value
+#             else:
+#                 result += value
+#             prev_value = value
+#         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/number-of-laser-beams-in-a-bank/?envType=daily-question&envId=2024-01-03 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUTUBE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def numberOfBeam(self, bank: List[str]) -> int:
+#         prev = bank[0].count("1")
+#         res = 0
+#
+#         for i in range(1, len(bank)):
+#             curr = bank[i].count("1")
+#             res += (prev * curr)
+#             if curr:
+#                 prev = curr
+#         return res
