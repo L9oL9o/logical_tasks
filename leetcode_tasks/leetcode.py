@@ -1,39 +1,13 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/n-queens/ |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/?envType=daily-question&envId=2024-01-04 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def solveNQueens(self, n: int) -> List[List[str]]:
-#         def is_valid(board, row, col, n):
-#             # Check if there is a queen in the same column
-#             for i in range(row):
-#                 if board[i][col] == 'Q':
-#                     return False
-#
-#             # Check if there is a queen in the left diagonal
-#             for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
-#                 if board[i][j] == 'Q':
-#                     return False
-#
-#             # Check if there is a queen in the right diagonal
-#             for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
-#                 if board[i][j] == 'Q':
-#                     return False
-#
-#             return True
-#
-#         def solve(board, row, n, result):
-#             if row == n:
-#                 result.append(["".join(row) for row in board])
-#                 return
-#
-#             for col in range(n):
-#                 if is_valid(board, row, col, n):
-#                     board[row][col] = 'Q'
-#                     solve(board, row + 1, n, result)
-#                     board[row][col] = '.'
-#
-#         result = []
-#         board = [['.'] * n for _ in range(n)]
-#         solve(board, 0, n, result)
-#         return result
+#     def minOperations(self, nums: List[int]) -> int:
+#         count = Counter(nums)
+#         res = 0
+#         for n, c in count.items():
+#             if c==1:
+#                 return -1
+#             res += math.ceil(c/3)
+#         return res
