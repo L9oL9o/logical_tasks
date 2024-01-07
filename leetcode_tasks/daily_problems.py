@@ -119,6 +119,7 @@
 #         return res
 
 
+
 # 5 JANUARY 2024
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/longest-increasing-subsequence/description/?envType=daily-question&envId=2024-01-05 |
@@ -136,3 +137,71 @@
 #                 if nums[i] > nums[j]:
 #                     dp[i] = max(dp[i], dp[j] + 1)
 #         return max(dp)
+
+
+
+# 6 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/maximum-profit-in-job-scheduling/?envType=daily-question&envId=2024-01-06 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+#         jobs = sorted(zip(startTime, endTime, profit), key=lambda x: x[1])  # Sort jobs by end time
+#         n = len(jobs)
+#
+#         dp = [0] * n  # dp[i] represents the maximum profit achievable until job i
+#
+#         for i in range(n):
+#             # Use binary search to find the latest non-overlapping job
+#             prev_job_idx = self.binarySearch(jobs, i)
+#
+#             # Calculate the maximum profit for the current job
+#             include_current = dp[prev_job_idx] + jobs[i][2]
+#             exclude_current = dp[i - 1] if i > 0 else 0
+#             dp[i] = max(include_current, exclude_current)
+#
+#         return dp[-1]
+#
+#     def binarySearch(self, jobs, current_idx):
+#         low, high = 0, current_idx - 1
+#
+#         while low <= high:
+#             mid = (low + high) // 2
+#             if jobs[mid][1] <= jobs[current_idx][0]:
+#                 if jobs[mid + 1][1] <= jobs[current_idx][0]:
+#                     low = mid + 1
+#                 else:
+#                     return mid
+#             else:
+#                 high = mid - 1
+#
+#         return -1
+
+
+
+# 7 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/arithmetic-slices-ii-subsequence/description/?envType=daily-question&envId=2024-01-07 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         total_count = 0  # Total count of arithmetic subsequences
+#
+#         # dp[i][diff] represents the count of arithmetic subsequences ending at index i with common difference diff
+#         dp = [{} for _ in range(n)]
+#
+#         for i in range(1, n):
+#             for j in range(i):
+#                 diff = nums[i] - nums[j]
+#
+#                 # The count of subsequences ending at index j with common difference diff
+#                 prev_count = dp[j].get(diff, 0)
+#
+#                 # Update the count of subsequences ending at index i with common difference diff
+#                 dp[i][diff] = dp[i].get(diff, 0) + prev_count + 1
+#
+#                 # Update the total count with the count of subsequences ending at index i with common difference diff
+#                 total_count += prev_count
+#
+#         return total_count

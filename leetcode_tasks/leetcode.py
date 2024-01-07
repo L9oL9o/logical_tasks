@@ -1,13 +1,26 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/?envType=daily-question&envId=2024-01-04 |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def minOperations(self, nums: List[int]) -> int:
-#         count = Counter(nums)
-#         res = 0
-#         for n, c in count.items():
-#             if c==1:
-#                 return -1
-#             res += math.ceil(c/3)
-#         return res
+#     def romanToInt(self, s: str) -> int:
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+
+        roman_values = {
+            1: "I",
+            5: "V",
+            10: "X",
+            50: "L",
+            100: "C",
+            500: "D",
+            1000: "M",
+        }
+        result = 0
+        prev_value = 0
+        for char in s:
+            value = roman_values[char]
+            if value > prev_value:
+                # If a smaller value precedes a larger value, subtract the smaller value
+                result += value - 2 * prev_value
+            else:
+                result += value
+            prev_value = value
+        return result

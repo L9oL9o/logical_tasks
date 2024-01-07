@@ -250,3 +250,31 @@
 #         board = [['.'] * n for _ in range(n)]
 #         solve(board, 0, n, result)
 #         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/arithmetic-slices-ii-subsequence/description/?envType=daily-question&envId=2024-01-07 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         total_count = 0  # Total count of arithmetic subsequences
+#
+#         # dp[i][diff] represents the count of arithmetic subsequences ending at index i with common difference diff
+#         dp = [{} for _ in range(n)]
+#
+#         for i in range(1, n):
+#             for j in range(i):
+#                 diff = nums[i] - nums[j]
+#
+#                 # The count of subsequences ending at index j with common difference diff
+#                 prev_count = dp[j].get(diff, 0)
+#
+#                 # Update the count of subsequences ending at index i with common difference diff
+#                 dp[i][diff] = dp[i].get(diff, 0) + prev_count + 1
+#
+#                 # Update the total count with the count of subsequences ending at index i with common difference diff
+#                 total_count += prev_count
+#
+#         return total_count
