@@ -1,15 +1,37 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/length-of-last-word |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~|
-# class Solution:
-#     def lengthOfLastWord(self, s: str) -> int:
-#         words = s.split()
-#         if words:
-#             s = words[-1]
-#             return len(s)
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        sorted_list = list(sorted(head))
+        return sorted_list
 
-# ~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# class Solution:
-#     def lengthOfLastWord(self, s: str) -> int:
-#         return len(s.strip().split(' ')[-1])
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Convert linked list values to a list
+        values = []
+        current = head
+        while current:
+            values.append(current.val)
+            current = current.next
+
+        # Sort the list
+        sorted_values = sorted(values)
+
+        # Create a new linked list with sorted values
+        dummy = ListNode()
+        current = dummy
+        for value in sorted_values:
+            current.next = ListNode(value)
+            current = current.next
+
+        return dummy.next

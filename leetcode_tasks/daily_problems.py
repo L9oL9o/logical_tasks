@@ -207,19 +207,72 @@
 #         return total_count
 
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# # https://leetcode.com/problems/length-of-last-word |
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-# ~~~~~~~~~~~~~~~~~~~~ MYSELF ~~~~~~~~~~~~~~~~~~~~~~~~|
-# class Solution:
-#     def lengthOfLastWord(self, s: str) -> int:
-#         words = s.split()
-#         if words:
-#             s = words[-1]
-#             return len(s)
 
-# ~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+# 8 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # https://leetcode.com/problems/range-sum-of-bst/?envType=daily-question&envId=2024-01-08 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # class Solution:
-#     def lengthOfLastWord(self, s: str) -> int:
-#         return len(s.strip().split(' ')[-1])
+#     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+#         def dfs(node):
+#             if not node:
+#                 return 0
+#
+#             # Check if the node's value is in the specified range
+#             if low <= node.val <= high:
+#                 result = node.val
+#             else:
+#                 result = 0
+#
+#             # Recursively process the left and right subtrees
+#             result += dfs(node.left)
+#             result += dfs(node.right)
+#
+#             return result
+#
+#         return dfs(root)
+
+
+
+# 9 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/leaf-similar-trees/?envType=daily-question&envId=2024-01-09 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# class Solution:
+#     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+#         def dfs(node, leaves):
+#             if not node:
+#                 return
+#
+#             # If the node is a leaf, add its value to the list
+#             if not node.left and not node.right:
+#                 leaves.append(node.val)
+#
+#             # Recursively process the left and right subtrees
+#             dfs(node.left, leaves)
+#             dfs(node.right, leaves)
+#
+#         # Collect leaf values for both trees
+#         leaves1, leaves2 = [], []
+#         dfs(root1, leaves1)
+#         dfs(root2, leaves2)
+#
+#         # Compare the leaf value sequences
+#         return leaves1 == leaves2
