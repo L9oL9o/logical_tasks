@@ -276,3 +276,120 @@
 #
 #         # Compare the leaf value sequences
 #         return leaves1 == leaves2
+
+
+
+# 10 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/?envType=daily-question&envId=2024-01-10 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
+#     ans = -1
+#     graph = self._getGraph(root)
+#     q = collections.deque([start])
+#     seen = {start}
+#
+#     while q:
+#       ans += 1
+#       for _ in range(len(q)):
+#         u = q.popleft()
+#         if u not in graph:
+#           continue
+#         for v in graph[u]:
+#           if v in seen:
+#             continue
+#           q.append(v)
+#           seen.add(v)
+#
+#     return ans
+#
+#   def _getGraph(self, root: Optional[TreeNode]) -> Dict[int, List[int]]:
+#     graph = collections.defaultdict(list)
+#     q = collections.deque([(root, -1)])  # (node, parent)
+#
+#     while q:
+#       node, parent = q.popleft()
+#       if parent != -1:
+#         graph[parent].append(node.val)
+#         graph[node.val].append(parent)
+#       if node.left:
+#         q.append((node.left, node.val))
+#       if node.right:
+#         q.append((node.right, node.val))
+#
+#     return graph
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+
+# 11 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/?envType=daily-question&envId=2024-01-11 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+#         def dfs(node, min_val, max_val):
+#             if not node:
+#                 return max_val - min_val
+#
+#             # Update min and max values along the current path
+#             min_val = min(min_val, node.val)
+#             max_val = max(max_val, node.val)
+#
+#             # Recursively calculate differences for left and right subtrees
+#             left_diff = dfs(node.left, min_val, max_val)
+#             right_diff = dfs(node.right, min_val, max_val)
+#
+#             # Return the maximum difference along the current path
+#             return max(left_diff, right_diff)
+#
+#         # Start DFS with initial values for min and max set to the root's value
+#         return dfs(root, root.val, root.val)
+
+
+
+# 12 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/determine-if-string-halves-are-alike/description/?envType=daily-question&envId=2024-01-12 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def halvesAreAlike(self, s: str) -> bool:
+#         def count_vowels(s):
+#             vowels = set("aeiouAEIOU")
+#             count = 0
+#             for char in s:
+#                 if char in vowels:
+#                     count += 1
+#             return count
+#
+#         length = len(s)
+#         mid = length // 2
+#
+#         # Split the string into two halves
+#         a = s[:mid]
+#         b = s[mid:]
+#
+#         # Count vowels in both halves
+#         count_a = count_vowels(a)
+#         count_b = count_vowels(b)
+#
+#         # Check if the counts are equal
+#         return count_a == count_b
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def halvesAreAlike(self, s: str) -> bool:
+#         vowelset = set("aeiouAEIOU")
+#
+#         return sum(c in vowelset for c in s[:len(s) // 2]) == sum(c in vowelset for c in s[len(s) // 2:])
