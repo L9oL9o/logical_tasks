@@ -1431,3 +1431,21 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         vowelset = set("aeiouAEIOU")
 #
 #         return sum(c in vowelset for c in s[:len(s) // 2]) == sum(c in vowelset for c in s[len(s) // 2:])
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/description/?envType=daily-question&envId=2024-01-13 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def minSteps(self, s: str, t: str) -> int:
+#         # Count occurrences of characters in both strings
+#         s_count = Counter(s)
+#         t_count = Counter(t)
+#
+#         # Find the difference in counts for each character
+#         differences = s_count - t_count
+#
+#         # Sum of absolute differences gives the minimum number of steps
+#         return sum(abs(diff) for diff in differences.values())
