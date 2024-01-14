@@ -1449,3 +1449,41 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #
 #         # Sum of absolute differences gives the minimum number of steps
 #         return sum(abs(diff) for diff in differences.values())
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/contest/weekly-contest-380/problems/find-beautiful-indices-in-the-given-array-i/ |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def beautifulIndices(self, s: str, a: str, b: str, k: int) -> List[int]:
+#         result = []
+#
+#         for i in range(len(s) - len(a) + 1):
+#             if s[i:i + len(a)] == a:
+#                 for j in range(max(0, i - k), min(len(s) - len(b) + 1, i + k + 1)):
+#                     if s[j:j + len(b)] == b and abs(i - j) <= k:
+#                         result.append(i)
+#                         break
+#
+#         return result
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/determine-if-two-strings-are-close/description/?envType=daily-question&envId=2024-01-14 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def closeStrings(self, word1: str, word2: str) -> bool:
+#         # Check if the sets of characters are the same
+#         if set(word1) != set(word2):
+#             return False
+#
+#         # Check if the frequencies of characters are the same
+#         freq1 = Counter(word1)
+#         freq2 = Counter(word2)
+#
+#         # Check if the frequencies of frequencies are the same
+#         return sorted(freq1.values()) == sorted(freq2.values())

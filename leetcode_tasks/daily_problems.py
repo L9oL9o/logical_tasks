@@ -412,3 +412,27 @@
 #
 #         # Sum of absolute differences gives the minimum number of steps
 #         return sum(abs(diff) for diff in differences.values())
+
+
+
+# 14 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/determine-if-two-strings-are-close/description/?envType=daily-question&envId=2024-01-14 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+# from collections import Counter
+#
+#
+# class Solution:
+#     def closeStrings(self, word1: str, word2: str) -> bool:
+#         # Check if the sets of characters are the same
+#         if set(word1) != set(word2):
+#             return False
+#
+#         # Check if the frequencies of characters are the same
+#         freq1 = Counter(word1)
+#         freq2 = Counter(word2)
+#
+#         # Check if the frequencies of frequencies are the same
+#         return sorted(freq1.values()) == sorted(freq2.values())
