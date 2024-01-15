@@ -436,3 +436,31 @@
 #
 #         # Check if the frequencies of frequencies are the same
 #         return sorted(freq1.values()) == sorted(freq2.values())
+
+
+# 15 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/find-players-with-zero-or-one-losses/?envType=daily-question&envId=2024-01-15 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+#         won_matches = set()
+#         lost_matches = {}
+#
+#         # Update sets and dictionaries based on match outcomes
+#         for winner, loser in matches:
+#             won_matches.add(winner)
+#             lost_matches[loser] = lost_matches.get(loser, 0) + 1
+#
+#         # Find players who have not lost any matches
+#         not_lost_any = list(won_matches - set(lost_matches.keys()))
+#
+#         # Find players who have lost exactly one match
+#         lost_exactly_one = [player for player, lost_count in lost_matches.items() if lost_count == 1]
+#
+#         # Sort the results in increasing order
+#         not_lost_any.sort()
+#         lost_exactly_one.sort()
+#
+#         return [not_lost_any, lost_exactly_one]
