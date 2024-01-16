@@ -1515,3 +1515,36 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         lost_exactly_one.sort()
 #
 #         return [not_lost_any, lost_exactly_one]
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/insert-delete-getrandom-o1/?envType=daily-question&envId=2024-01-16 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# import random
+#
+# class RandomizedSet:
+#
+#     def __init__(self):
+#         self.elements = []  # List to store elements
+#         self.indices = {}   # Dictionary to store indices of elements
+#
+#     def insert(self, val: int) -> bool:
+#         if val in self.indices:
+#             return False  # Element already present, insertion failed
+#         self.elements.append(val)
+#         self.indices[val] = len(self.elements) - 1
+#         return True
+#
+#     def remove(self, val: int) -> bool:
+#         if val not in self.indices:
+#             return False  # Element not present, removal failed
+#         last_element, idx = self.elements[-1], self.indices[val]
+#         self.elements[idx], self.indices[last_element] = last_element, idx
+#         self.elements.pop()
+#         del self.indices[val]
+#         return True
+#
+#     def getRandom(self) -> int:
+#         return random.choice(self.elements)
