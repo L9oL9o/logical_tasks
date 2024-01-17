@@ -498,3 +498,25 @@
 #
 #     def getRandom(self) -> int:
 #         return random.choice(self.elements)
+
+
+
+# 17 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/unique-number-of-occurrences/description/?envType=daily-question&envId=2024-01-17 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUTUBE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# from collections import Counter
+# from typing import List
+# class Solution:
+#     def uniqueOccurrences(self, arr: List[int]) -> bool:
+#         # Create a Counter object that counts occurrences of each element in the array.
+#         element_count = Counter(arr)
+#
+#         # Convert the values of the Counter (which represent the occurrences of each unique element) to a set.
+#         # This will remove any duplicate counts.
+#         unique_occurrences = set(element_count.values())
+#
+#         # Check if the number of unique occurrences is equal to the number of unique elements.
+#         # If they are equal, it means that no two elements have the same number of occurrences.
+#         return len(unique_occurrences) == len(element_count)
