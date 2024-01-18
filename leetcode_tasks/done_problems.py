@@ -1569,3 +1569,23 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         # Check if the number of unique occurrences is equal to the number of unique elements.
 #         # If they are equal, it means that no two elements have the same number of occurrences.
 #         return len(unique_occurrences) == len(element_count)
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/climbing-stairs/submissions/1149892052/?envType=daily-question&envId=2024-01-18 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def climbStairs(self, n: int) -> int:
+#         if n <= 2:
+#             return n
+#         # Initialize an array to store the number of ways to climb to each step
+#         dp = [0] * (n + 1)
+#         # Base cases
+#         dp[1] = 1
+#         dp[2] = 2
+#         # Fill the array using the recurrence relation
+#         for i in range(3, n + 1):
+#             dp[i] = dp[i - 1] + dp[i - 2]
+#         return dp[n]
