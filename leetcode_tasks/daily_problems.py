@@ -541,3 +541,50 @@
 #         for i in range(3, n + 1):
 #             dp[i] = dp[i - 1] + dp[i - 2]
 #         return dp[n]
+
+
+
+# 19 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/minimum-falling-path-sum/description/?envType=daily-question&envId=2024-01-19 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUTUBE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+#         N = len(matrix)
+#
+#         for r in range(1, N):
+#             for c in range(N):
+#                 mid = matrix[r - 1][c]
+#                 left = matrix[r - 1][c - 1] if c > 0 else float("inf")
+#                 right = matrix[r - 1][c + 1] if c < N - 1 else float("inf")
+#                 matrix[r][c] = matrix[r][c] + min(mid, left, right)
+#
+#         return min(matrix[-1])
+
+
+
+# 20 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/sum-of-subarray-minimums/?envType=daily-question&envId=2024-01-20 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def sumSubarrayMins(self, arr: List[int]) -> int:
+#         mod = 10**9 + 7
+#         stack = []
+#         result = 0
+#         for i, num in enumerate(arr):
+#             while stack and arr[stack[-1]] > num:
+#                 top = stack.pop()
+#                 left = stack[-1] if stack else -1
+#                 result += arr[top] * (i - top) * (top - left)
+#                 result %= mod
+#             stack.append(i)
+#         # Process the remaining elements in the stack
+#         while stack:
+#             top = stack.pop()
+#             left = stack[-1] if stack else -1
+#             result += arr[top] * (len(arr) - top) * (top - left)
+#             result %= mod
+#         return result
