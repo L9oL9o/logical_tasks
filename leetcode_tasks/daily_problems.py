@@ -588,3 +588,69 @@
 #             result += arr[top] * (len(arr) - top) * (top - left)
 #             result %= mod
 #         return result
+
+
+
+# 21 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/house-robber/description/?envType=daily-question&envId=2024-01-21 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def rob(self, nums: List[int]) -> int:
+#     if not nums:
+#       return 0
+#     if len(nums) == 1:
+#       return nums[0]
+#
+#     # dp[i]:= max money of robbing nums[0..i]
+#     dp = [0] * len(nums)
+#     dp[0] = nums[0]
+#     dp[1] = max(nums[0], nums[1])
+#
+#     for i in range(2, len(nums)):
+#       dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+#
+#     return dp[-1]
+
+
+
+# 22 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/set-mismatch/description/?envType=daily-question&envId=2024-01-22 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findErrorNums(self, nums: List[int]) -> List[int]:
+#         count = [0] * len(nums)
+#         for i in nums:
+#             count[i - 1] += 1
+#         return [count.index(2) + 1, count.index(0) + 1]
+
+
+
+# 23 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/description/?envType=daily-question&envId=2024-01-23 |                                                                                                                |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def maxLength(self, arr: List[str]) -> int:
+#         def is_unique(subseq):
+#             return len(subseq) == len(set(subseq))
+#         def backtrack(index, current_subseq):
+#             nonlocal max_length
+#             if index == len(arr):
+#                 return
+#             # Check if adding the current string to the subsequence is valid
+#             if is_unique(current_subseq + arr[index]):
+#                 max_length = max(max_length, len(current_subseq) + len(arr[index]))
+#             # Recursively explore with and without adding the current string
+#             backtrack(index + 1, current_subseq + arr[index])
+#             backtrack(index + 1, current_subseq)
+#         max_length = 0
+#         backtrack(0, "")
+#         return max_length
+
+
+
+# 24 JANUARY 2024
