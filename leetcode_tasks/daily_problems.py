@@ -654,3 +654,114 @@
 
 
 # 24 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/description/?envType=daily-question&envId=2024-01-24 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+#     ans = 0
+#     def dfs(root: Optional[TreeNode], path: int) -> None:
+#       nonlocal ans
+#       if not root:
+#         return
+#       if not root.left and not root.right:
+#         path ^= 1 << root.val
+#         if path & (path - 1) == 0:
+#           ans += 1
+#         return
+#       dfs(root.left, path ^ 1 << root.val)
+#       dfs(root.right, path ^ 1 << root.val)
+#     dfs(root, 0)
+#     return ans
+
+
+
+# 25 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/longest-common-subsequence/?envType=daily-question&envId=2024-01-25 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+#     m = len(text1)
+#     n = len(text2)
+#     # dp[i][j] := the length of LCS(text1[0..i), text2[0..j))
+#     dp = [[0] * (n + 1) for _ in range(m + 1)]
+#     for i in range(m):
+#       for j in range(n):
+#         dp[i + 1][j + 1] = \
+#             1 + dp[i][j] if text1[i] == text2[j] \
+#             else max(dp[i][j + 1], dp[i + 1][j])
+#     return dp[m][n]
+
+
+
+# 26 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/out-of-boundary-paths/description/?envType=daily-question&envId=2024-01-26 |
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUTUBE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startCoolumn: int) -> int:
+#         ROWS, COLS = m, n
+#         MOD = 10 ** 9 + 7
+#         grid = [[0] * COLS for _ in range(ROWS)]
+#
+#         for m in range(1, maxMove + 1):
+#             tmp = [[0] * COLS for _ in range(ROWS)]
+#             for r in range(ROWS):
+#                 for c in range(COLS):
+#                     if r + 1 == ROWS:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r + 1][c]) % MOD
+#                     if r - 1 < 0:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r - 1][c]) % MOD
+#                     if c + 1 == COLS:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r][c + 1]) % MOD
+#                     if c - 1 < 0:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r][c - 1]) % MOD
+#             grid = tmp
+#         return grid[startRow][startCoolumn]
+
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startColumn: int) -> int:
+#         @lru_cache(None)
+#         def recursive_run(i,j,moves):
+#             if i>=m or j>=n or i<0 or j<0:
+#                 return 1
+#             elif moves == 0:
+#                 return 0
+#             out = recursive_run(i+1,j,moves-1)
+#             out += recursive_run(i-1,j,moves-1)
+#             out += recursive_run(i,j+1,moves-1)
+#             out += recursive_run(i,j-1,moves-1)
+#             return out
+#         return recursive_run(startRow,startColumn,maxMove) %(10**9+7)
+
+
+# 27 JANUARY 2024
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/k-inverse-pairs-array/description/?envType=daily-question&envId=2024-01-27 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def kInversePairs(self, n: int, k: int) -> int:
+#         dp, mod = [1]+[0] * k, 1000000007
+#         for i in range(n):
+#             tmp, sm = [], 0
+#             for j in range(k + 1):
+#                 sm+= dp[j]
+#                 if j-i >= 1: sm-= dp[j-i-1]
+#                 sm%= mod
+#                 tmp.append(sm)
+#             dp = tmp
+#         return dp[k]

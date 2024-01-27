@@ -1,37 +1,16 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 class Solution:
-    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        sorted_list = list(sorted(head))
-        return sorted_list
+    def kInversePairs(self, n: int, k: int) -> int:
+        MOD = 10 ** 9 + 7
+        prev = [0] * (k + 1)
+        prev[0] = 1
 
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-class Solution:
-    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Convert linked list values to a list
-        values = []
-        current = head
-        while current:
-            values.append(current.val)
-            current = current.next
-
-        # Sort the list
-        sorted_values = sorted(values)
-
-        # Create a new linked list with sorted values
-        dummy = ListNode()
-        current = dummy
-        for value in sorted_values:
-            current.next = ListNode(value)
-            current = current.next
-
-        return dummy.next
+        for N in range(1, n + 1):
+            cur = [0] * (k + 1)
+            total = 0
+            for K in range(0, k + 1):
+                if K >= N:
+                    total -= prev[K - N]
+                total = (total + prev[K]) % MOD
+                cur[K] = total
+            prev = cur
+        return prev[k]

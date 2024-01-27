@@ -389,7 +389,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # def solve():
 #     with open('user.out', 'w') as f:
@@ -769,7 +768,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return count
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/?envType=daily-question&envId=2023-12-30 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -787,7 +785,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #             if s.count(letter) % len(words) != 0:
 #                 return False
 #         return True
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -842,7 +839,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return n
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/submissions/1133785283/?envType=daily-question&envId=2023-12-30 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -851,7 +847,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #     def makeEqual(self, words: List[str]) -> bool:
 #         char_count = Counter("".join(words))
 #         return all(count % len(words) == 0 for count in char_count.values())
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -880,7 +875,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 seen.add(num)
 #
 #         return result
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -940,7 +934,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return result
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/number-of-laser-beams-in-a-bank/?envType=daily-question&envId=2024-01-03 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -956,7 +949,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #             if curr:
 #                 prev = curr
 #         return res
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1013,7 +1005,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return not stack
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/longest-common-prefix/description/ |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1033,7 +1024,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #             else:
 #                 break
 #         return ''.join(common_prefix)
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1062,7 +1052,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                     dp[i][j] = dp[i][j - 2] or (dp[i - 1][j] if s[i - 1] == p[j - 2] or p[j - 2] == '.' else False)
 #
 #         return dp[-1][-1]
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1104,7 +1093,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return dummy.next
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/substring-with-concatenation-of-all-words/ |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1138,8 +1126,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                     result.append(left)
 #
 #         return result
-
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1185,7 +1171,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 # # Output: 0
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/trapping-rain-water/description/ |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1212,7 +1197,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 right -= 1
 #
 #         return water
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~|
@@ -1256,7 +1240,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return result
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # # https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/?envType=daily-question&envId=2024-01-04 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1270,7 +1253,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 return -1
 #             res += math.ceil(c/3)
 #         return res
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1289,7 +1271,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 if nums[i] > nums[j]:
 #                     dp[i] = max(dp[i], dp[j] + 1)
 #         return max(dp)
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1317,7 +1298,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 total_count += prev_count
 #
 #         return total_count
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1370,7 +1350,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         self.right = right
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/?envType=daily-question&envId=2024-01-11 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1394,7 +1373,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #
 #         # Start DFS with initial values for min and max set to the root's value
 #         return dfs(root, root.val, root.val)
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1433,7 +1411,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return sum(c in vowelset for c in s[:len(s) // 2]) == sum(c in vowelset for c in s[len(s) // 2:])
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/description/?envType=daily-question&envId=2024-01-13 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1449,7 +1426,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #
 #         # Sum of absolute differences gives the minimum number of steps
 #         return sum(abs(diff) for diff in differences.values())
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1470,7 +1446,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return result
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/determine-if-two-strings-are-close/description/?envType=daily-question&envId=2024-01-14 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1487,7 +1462,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #
 #         # Check if the frequencies of frequencies are the same
 #         return sorted(freq1.values()) == sorted(freq2.values())
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1515,7 +1489,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         lost_exactly_one.sort()
 #
 #         return [not_lost_any, lost_exactly_one]
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1550,7 +1523,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return random.choice(self.elements)
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/unique-number-of-occurrences/description/?envType=daily-question&envId=2024-01-17 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1569,7 +1541,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         # Check if the number of unique occurrences is equal to the number of unique elements.
 #         # If they are equal, it means that no two elements have the same number of occurrences.
 #         return len(unique_occurrences) == len(element_count)
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1591,7 +1562,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return dp[n]
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/minimum-falling-path-sum/description/?envType=daily-question&envId=2024-01-19 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1608,7 +1578,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                 matrix[r][c] = matrix[r][c] + min(mid, left, right)
 #
 #         return min(matrix[-1])
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1636,7 +1605,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         return result
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/house-robber/description/?envType=daily-question&envId=2024-01-21 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1659,7 +1627,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #     return dp[-1]
 
 
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 # https://leetcode.com/problems/set-mismatch/description/?envType=daily-question&envId=2024-01-22 |
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1670,7 +1637,6 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         for i in nums:
 #             count[i - 1] += 1
 #         return [count.index(2) + 1, count.index(0) + 1]
-
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -1693,3 +1659,111 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #         max_length = 0
 #         backtrack(0, "")
 #         return max_length
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/description/?envType=daily-question&envId=2024-01-24 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+#     ans = 0
+#     def dfs(root: Optional[TreeNode], path: int) -> None:
+#       nonlocal ans
+#       if not root:
+#         return
+#       if not root.left and not root.right:
+#         path ^= 1 << root.val
+#         if path & (path - 1) == 0:
+#           ans += 1
+#         return
+#       dfs(root.left, path ^ 1 << root.val)
+#       dfs(root.right, path ^ 1 << root.val)
+#     dfs(root, 0)
+#     return ans
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/longest-common-subsequence/?envType=daily-question&envId=2024-01-25 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#   def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+#     m = len(text1)
+#     n = len(text2)
+#     # dp[i][j] := the length of LCS(text1[0..i), text2[0..j))
+#     dp = [[0] * (n + 1) for _ in range(m + 1)]
+#     for i in range(m):
+#       for j in range(n):
+#         dp[i + 1][j + 1] = \
+#             1 + dp[i][j] if text1[i] == text2[j] \
+#             else max(dp[i][j + 1], dp[i + 1][j])
+#     return dp[m][n]
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/out-of-boundary-paths/description/?envType=daily-question&envId=2024-01-26 |
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ YOUTUBE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startCoolumn: int) -> int:
+#         ROWS, COLS = m, n
+#         MOD = 10 ** 9 + 7
+#         grid = [[0] * COLS for _ in range(ROWS)]
+#
+#         for m in range(1, maxMove + 1):
+#             tmp = [[0] * COLS for _ in range(ROWS)]
+#             for r in range(ROWS):
+#                 for c in range(COLS):
+#                     if r + 1 == ROWS:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r + 1][c]) % MOD
+#                     if r - 1 < 0:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r - 1][c]) % MOD
+#                     if c + 1 == COLS:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r][c + 1]) % MOD
+#                     if c - 1 < 0:
+#                         tmp[r][c] = (tmp[r][c] + 1) % MOD
+#                     else:
+#                         tmp[r][c] = (tmp[r][c] + grid[r][c - 1]) % MOD
+#             grid = tmp
+#         return grid[startRow][startCoolumn]
+
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startColumn: int) -> int:
+#         @lru_cache(None)
+#         def recursive_run(i,j,moves):
+#             if i>=m or j>=n or i<0 or j<0:
+#                 return 1
+#             elif moves == 0:
+#                 return 0
+#             out = recursive_run(i+1,j,moves-1)
+#             out += recursive_run(i-1,j,moves-1)
+#             out += recursive_run(i,j+1,moves-1)
+#             out += recursive_run(i,j-1,moves-1)
+#             return out
+#         return recursive_run(startRow,startColumn,maxMove) %(10**9+7)
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/k-inverse-pairs-array/description/?envType=daily-question&envId=2024-01-27 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def kInversePairs(self, n: int, k: int) -> int:
+#         dp, mod = [1]+[0] * k, 1000000007
+#         for i in range(n):
+#             tmp, sm = [], 0
+#             for j in range(k + 1):
+#                 sm+= dp[j]
+#                 if j-i >= 1: sm-= dp[j-i-1]
+#                 sm%= mod
+#                 tmp.append(sm)
+#             dp = tmp
+#         return dp[k]
