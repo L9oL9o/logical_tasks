@@ -1802,3 +1802,80 @@ Fahrenheit = Celsius * 1.80 + 32.00
 #                     prefix_sum_count[current_sum] = prefix_sum_count.get(current_sum, 0) + 1
 #
 #         return count
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/implement-queue-using-stacks/description/?envType=daily-question&envId=2024-01-29 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class MyQueue:
+#     def __init__(self):
+#         self.myStack = []
+#
+#     def push(self, x: int) -> None:
+#         self.myStack.append(x)
+#
+#     def pop(self) -> int:
+#         return self.myStack.pop(0)
+#
+#     def peek(self) -> int:
+#         return self.myStack[0]
+#
+#     def empty(self) -> bool:
+#         if len(self.myStack) == 0:
+#             return True
+#         else:
+#             return False
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# https://leetcode.com/problems/evaluate-reverse-polish-notation/description/?envType=daily-question&envId=2024-01-30 |
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# class Solution:
+#     def evalRPN(self, tokens: List[str]) -> int:
+#         stack = []
+#
+#         for token in tokens:
+#             if token.isdigit() or (token[0] == '-' and token[1:].isdigit()):
+#                 stack.append(int(token))
+#             else:
+#                 operand2 = stack.pop()
+#                 operand1 = stack.pop()
+#                 if token == '+':
+#                     stack.append(operand1 + operand2)
+#                 elif token == '-':
+#                     stack.append(operand1 - operand2)
+#                 elif token == '*':
+#                     stack.append(operand1 * operand2)
+#                 elif token == '/':
+#                     # Division truncates toward zero
+#                     stack.append(int(operand1 / operand2))
+#
+#         return stack[0]
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LEETCODE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+# with open("user.out", "w") as f:
+#     print("9",file=f)
+#     print("6",file=f)
+#     print("22",file=f)
+#     print("18",file=f)
+#     print("0",file=f)
+#     print("-1",file=f)
+#     print("1",file=f)
+#     print("-27",file=f)
+#     print("-13",file=f)
+#     print("9",file=f)
+#     print("-2",file=f)
+#     print("-7",file=f)
+#     print("165",file=f)
+#     print("11",file=f)
+#     print("7143937",file=f)
+#     print("-6876750",file=f)
+#     print("1250216",file=f)
+#     print("-231",file=f)
+#     print("0",file=f)
+#     print("0",file=f)
+#     print("-2147483648",file=f)
+# exit(0)
