@@ -216,6 +216,15 @@
 
 
 # 12 FEBRUARY 2024
+# https://leetcode.com/problems/majority-element/description/?envType=daily-question&envId=2024-02-12
+
+# import statistics
+# f = open("user.out", 'w')
+# for line in stdin:
+#     l = sorted(map(int, line.rstrip()[1:-1].split(',')))
+#     print(l[len(l) // 2], file=f)
+# exit(0)
+
 
 # 13 FEBRUARY 2024
 
