@@ -242,6 +242,12 @@
 
 
 # 14 FEBRUARY 2024
+# https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/?envType=daily-question&envId=2024-02-13
+
+# class Solution:
+#     def firstPalindrome(self, words: List[str]) -> str:
+#         return next((s for s in words if s == s[::-1]), "")
+
 
 # 15 FEBRUARY 2024
 
