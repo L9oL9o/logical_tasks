@@ -227,6 +227,19 @@
 
 
 # 13 FEBRUARY 2024
+# https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/?envType=daily-question&envId=2024-02-13
+
+# f = open('user.out', 'w')
+# for test in map(loads, stdin):
+#     flag = True
+#     for word in test:
+#         if word == word[::-1]:
+#             flag = False
+#             print('"' + word + '"', file=f)
+#             break
+#     if flag: print('""', file=f)
+# exit(0)
+
 
 # 14 FEBRUARY 2024
 
