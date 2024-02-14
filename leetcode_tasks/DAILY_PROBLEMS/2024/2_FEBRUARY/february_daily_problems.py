@@ -229,24 +229,28 @@
 # 13 FEBRUARY 2024
 # https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/?envType=daily-question&envId=2024-02-13
 
-# f = open('user.out', 'w')
-# for test in map(loads, stdin):
-#     flag = True
-#     for word in test:
-#         if word == word[::-1]:
-#             flag = False
-#             print('"' + word + '"', file=f)
-#             break
-#     if flag: print('""', file=f)
-# exit(0)
+# class Solution:
+#     def firstPalindrome(self, words: List[str]) -> str:
+#         return next((s for s in words if s == s[::-1]), "")
 
 
 # 14 FEBRUARY 2024
 # https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/?envType=daily-question&envId=2024-02-13
 
 # class Solution:
-#     def firstPalindrome(self, words: List[str]) -> str:
-#         return next((s for s in words if s == s[::-1]), "")
+#     def rearrangeArray(self, nums: List[int]) -> List[int]:
+#         ans = [0] * len(nums)
+#         pos, neg = 0, 1
+#
+#         for num in nums:
+#             if num > 0:
+#                 ans[pos] = num
+#                 pos += 2
+#             else:
+#                 ans[neg] = num
+#                 neg += 2
+#
+#         return ans
 
 
 # 15 FEBRUARY 2024
