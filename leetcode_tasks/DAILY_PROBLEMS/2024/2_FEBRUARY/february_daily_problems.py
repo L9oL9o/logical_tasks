@@ -254,10 +254,63 @@
 
 
 # 15 FEBRUARY 2024
+# https://leetcode.com/problems/find-polygon-with-the-largest-perimeter/description/?envType=daily-question&envId=2024-02-15
+
+# class Solution:
+#     def largestPerimeter(self, nums: List[int]) -> int:
+#         nums.sort()
+#         _sum = sum(nums)
+#         n = len(nums)
+#         for i in range(n - 1, 1, -1):
+#             _sum -= nums[i]
+#             if _sum > nums[i]:
+#                 return _sum + nums[i]
+#         return -1
+
 
 # 16 FEBRUARY 2024
+# https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/description/?envType=daily-question&envId=2024-02-16
+
+# class Solution:
+#     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+#         mp = collections.Counter(arr)
+#         v = list(mp.values())
+#         cnt = 0
+#         v.sort()
+#         for i in range(len(v)):
+#             if k > v[i]:
+#                 k -= v[i]
+#                 v[i] = 0
+#             else:
+#                 v[i] -= k
+#                 k = 0
+#             if v[i] != 0:
+#                 cnt += 1
+#         return cnt
+
 
 # 17 FEBRUARY 2024
+# https://leetcode.com/problems/furthest-building-you-can-reach/description/?envType=daily-question&envId=2024-02-17
+
+# class Solution:
+#     def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+#         b = 0
+#         ld = []
+#         n = len(heights)
+#
+#         for i in range(n - 1):
+#             if heights[i] < heights[i + 1]:
+#                 d = heights[i + 1] - heights[i]
+#                 if len(ld) < ladders:
+#                     heapq.heappush(ld, d)
+#                 else:
+#                     b += heapq.heappushpop(ld, d)
+#
+#                 if b > bricks:
+#                     return i
+#
+#         return n - 1
+
 
 # 18 FEBRUARY 2024
 
