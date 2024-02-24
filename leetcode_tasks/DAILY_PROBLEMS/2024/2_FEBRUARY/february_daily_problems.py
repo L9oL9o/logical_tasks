@@ -313,8 +313,49 @@
 
 
 # 18 FEBRUARY 2024
+# https://leetcode.com/problems/meeting-rooms-iii/description/?envType=daily-question&envId=2024-02-18
+
+# class Solution:
+#     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
+#         heapify(rooms := [_ for _ in range(n)])
+#         unavailable, logbook = [], [0] * n
+#         for start_i, end_i in sorted(meetings, key=lambda x: x[0]):
+#             while unavailable and unavailable[0][0] <= start_i:
+#                 _, room = heappop(unavailable)
+#                 heappush(rooms, room)
+#             if rooms:
+#                 room = heappop(rooms)
+#                 heappush(unavailable, [end_i, room])
+#             else:
+#                 currentEnd, room = heappop(unavailable)
+#                 newEnd = currentEnd + end_i - start_i
+#                 heappush(unavailable, [newEnd, room])
+#             logbook[room] += 1
+#         maxBookingCount = max(logbook)
+#         return logbook.index(maxBookingCount)
+# with open('user.out', 'w') as f:
+#     testcases = list(stdin)
+#     for n, meetings in zip(testcases[::2], testcases[1::2]):
+#         f.write(f"{str(Solution().mostBooked(loads(n), loads(meetings)))}\n")
+# exit()
+
 
 # 19 FEBRUARY 2024
+# https://leetcode.com/problems/power-of-two/description/?envType=daily-question&envId=2024-02-19
+
+# class Solution:
+#     def isPowerOfTwo(self, n: int) -> bool:
+#         powers = (4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+#         if n in powers:
+#             return True
+#         if n % 2 == 1 or n < 1:
+#             return False
+#         for power in powers:
+#             if n % power == 0:
+#                 return self.isPowerOfTwo(n / power)
+#         return self.isPowerOfTwo(n / 2)
+
+
 
 # 20 FEBRUARY 2024
 # https://leetcode.com/problems/missing-number/description/?envType=daily-question&envId=2024-02-20
