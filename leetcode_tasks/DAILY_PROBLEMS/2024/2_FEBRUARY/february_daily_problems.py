@@ -317,14 +317,107 @@
 # 19 FEBRUARY 2024
 
 # 20 FEBRUARY 2024
+# https://leetcode.com/problems/missing-number/description/?envType=daily-question&envId=2024-02-20
+
+# with open("user.out", "w") as file:
+#     for i in stdin:
+#         i = list(map(int, i.rstrip()[1:-1].split(',')))
+#         n = len(i)
+#         file.write(str(sum(range(0,n+1))-sum(i))+"\n")
+# exit(0)
+
 
 # 21 FEBRUARY 2024
+# https://leetcode.com/problems/bitwise-and-of-numbers-range/description/?envType=daily-question&envId=2024-02-21
+
+# class Solution:
+#     def rangeBitwiseAnd(self, left: int, right: int) -> int:
+#         while left < right:
+#             right = right & (right-1)
+#         return left & right
+
 
 # 22 FEBRUARY 2024
+# https://leetcode.com/problems/find-the-town-judge/description/?envType=daily-question&envId=2024-02-22
+
+# f=open("user.out",'w')
+# while True:
+#     try:
+#         n=int(input())
+#         trust=input()[2:-2].split('],[')
+#         trust_him=[1]*(n+1)
+#         he_trust=[1]*(n+1)
+#         for i in trust:
+#             if i=='': break
+#             i,j=map(int, i.split(','))
+#             trust_him[j]+=1
+#             he_trust[i]=0
+#         ans=-1
+#         for i in range(1,n+1):
+#             if he_trust[i] and trust_him[i]==n:
+#                 ans= i
+#         print(ans,file=f)
+#     except:
+#         f.close()
+#         exit(0)
+
 
 # 23 FEBRUARY 2024
+# https://leetcode.com/problems/cheapest-flights-within-k-stops/description/?envType=daily-question&envId=2024-02-23
+
+# class Solution:
+#     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+#         dp = [float('inf')] * n
+#         dp[src] = 0
+#         for _ in range(k + 1):
+#             temp = dp[:]
+#             for flight in flights:
+#                 if dp[flight[0]] != float('inf'):
+#                     temp[flight[1]] = min(temp[flight[1]], dp[flight[0]] + flight[2])
+#             dp = temp
+#         return dp[dst] if dp[dst] != float('inf') else -1
+
 
 # 24 FEBRUARY 2024
+# https://leetcode.com/problems/find-all-people-with-secret/description/?envType=daily-question&envId=2024-02-24
+
+# class Solution:
+#     def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
+#         def handle(nodes):
+#             adj = defaultdict(set)
+#             n_t_h = set()
+#             for x, y, _ in nodes:
+#                 if secret[x]:
+#                     n_t_h.add(x)
+#                 if secret[y]:
+#                     n_t_h.add(y)
+#                 adj[x].add(y)
+#                 adj[y].add(x)
+#             while n_t_h:
+#                 n_n_t_h = set()
+#                 for node in n_t_h:
+#                     for neighbor in adj[node]:
+#                         if secret[neighbor]:
+#                             continue
+#                         secret[neighbor] = True
+#                         n_n_t_h.add(neighbor)
+#                 n_t_h = n_n_t_h
+#         meetings.sort(key=lambda e: e[2])
+#         i = 0
+#         m = len(meetings)
+#         secret = [False for i in range(n)]
+#         secret[0] = True
+#         secret[firstPerson] = True
+#         while i < m:
+#             time = meetings[i][2]
+#             to_handle = []
+#             while i < m and meetings[i][2] == time:
+#                 if not secret[meetings[i][0]] or not secret[meetings[i][1]]:
+#                     to_handle.append(meetings[i])
+#                 i += 1
+#             handle(to_handle)
+#         return [i for i in range(n) if secret[i]]
+
 
 # 25 FEBRUARY 2024
 
