@@ -475,7 +475,7 @@
 #                 if gcd(nums[i], nums[j]) - 1:
 #                     nums[j] *= nums[i]
 #                     break
-#             else:
+#             else: 
 #                 return False
 #         return True
 
@@ -493,6 +493,21 @@
 
 
 # 27 FEBRUARY 2024
+# https://leetcode.com/problems/diameter-of-binary-tree/description/?envType=daily-question&envId=2024-02-27
+
+# class Solution:
+#     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+#         self.res = 0
+#         def dfs(node):
+#             if not node:
+#                 return 0
+#             left = dfs(node.left)
+#             right = dfs(node.right)
+#             self.res = max(self.res, left + right)
+#             return 1 + max(left, right)
+#         dfs(root)
+#         return self.res
+
 
 # 28 FEBRUARY 2024
 
