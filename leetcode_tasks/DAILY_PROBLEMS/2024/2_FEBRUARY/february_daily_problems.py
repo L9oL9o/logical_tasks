@@ -510,8 +510,47 @@
 
 
 # 28 FEBRUARY 2024
+# https://leetcode.com/problems/find-bottom-left-tree-value/?envType=daily-question&envId=2024-02-28
+
+# class Solution:
+#     def __init__(self):
+#         self.res = [0] * 2
+#     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+#         self.dfs(root, 1)
+#         return self.res[1]
+#     def dfs(self, node, depth):
+#         if not node:
+#             return
+#         if depth > self.res[0]:
+#             self.res[0] = depth
+#             self.res[1] = node.val
+#         self.dfs(node.left, depth + 1)
+#         self.dfs(node.right, depth + 1)
+
 
 # 29 FEBRUARY 2024
+# https://leetcode.com/problems/even-odd-tree/description/?envType=daily-question&envId=2024-02-29
 
-
+# class Solution:
+#     def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
+#         q = [root]
+#         is_odd = False
+#         while q:
+#             new_q = []
+#             prev = None
+#             for node in q:
+#                 if is_odd:
+#                     if node.val % 2 or (prev and prev.val <= node.val):
+#                         return False
+#                 else:
+#                     if not node.val % 2 or (prev and prev.val >= node.val):
+#                         return False
+#                 if node.left:
+#                     new_q.append(node.left)
+#                 if node.right:
+#                     new_q.append(node.right)
+#                 prev = node
+#             q = new_q
+#             is_odd = not is_odd
+#         return True
 
