@@ -568,6 +568,327 @@
 #         return maxi
 
 
+# https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions/1769367/python3-recursive-dfs-explained/?envType=study-plan-v2&envId=leetcode-75
+# 33 Maximum Depth of Binary Tree
+# class Solution:
+#     def maxDepth(self, root: Optional[TreeNode]) -> int:
+#         def dfs(root, depth):
+#             if not root: return depth
+#             return max(dfs(root.left, depth + 1), dfs(root.right, depth + 1))
+#
+#         return dfs(root, 0)
+
+
+# https://leetcode.com/problems/leaf-similar-trees/description/?envType=study-plan-v2&envId=leetcode-75
+# 34 Leaf-Similar Trees
+# class Solution:
+#     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+#         # Helper function to traverse the tree and collect leaf node values
+#         def checkLeaf(root, ans):
+#             # Base case: If the node is null, return
+#             if not root:
+#                 return
+#
+#             # Recursively check the left subtree
+#             checkLeaf(root.left, ans)
+#
+#             # If the node is a leaf (both left and right children are null), add its value to the list
+#             if not root.left and not root.right:
+#                 ans.append(root.val)
+#
+#             # Recursively check the right subtree
+#             checkLeaf(root.right, ans)
+#
+#         # Lists to store leaf values for each tree
+#         ans1, ans2 = [], []
+#
+#         # Populate lists with leaf values using the helper function
+#         checkLeaf(root1, ans1)
+#         checkLeaf(root2, ans2)
+#
+#         # Check if the leaf sequences for both trees are equal
+#         return ans1 == ans2
+
+
+# https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 35 Count Good Nodes in Binary Tree
+# class Solution:
+#     def goodNodes(self, root: TreeNode) -> int:
+#         def helper(node, currMax):
+#             if not node:
+#                 return 0
+#             if node.val >= currMax:
+#                 cnt = 1
+#             else:
+#                 cnt = 0
+#             currMax = max(currMax, node.val)
+#             cnt += helper(node.left, currMax)
+#             cnt += helper(node.right, currMax)
+#             return cnt
+#         return helper(root, root.val)
+
+
+# https://leetcode.com/problems/path-sum-iii/description/?envType=study-plan-v2&envId=leetcode-75
+# 36 Path Sum III
+# class Solution:
+#     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+#         nums=defaultdict(int)
+#         nums[0]=1
+#         def dfs(root,tot):
+#             cnt=0
+#             if root:
+#                 tot+=root.val
+#                 cnt=nums[tot-targetSum]
+#                 nums[tot]+=1
+#                 cnt+=dfs(root.left,tot)+dfs(root.right,tot)
+#                 nums[tot]-=1
+#             return cnt
+#         return dfs(root,0)
+
+
+# https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 37 Longest ZigZag Path in a Binary Tree
+# class Solution:
+#     def longestZigZag(self, root: Optional[TreeNode]) -> int:
+#         self.maxLength = 0
+#         def solve(node, deep, dir):
+#             self.maxLength = max(self.maxLength, deep)
+#
+#             if node.left is not None:
+#                 solve(node.left, deep+1,'left') if dir != 'left' else solve(node.left, 1, 'left')
+#             if node.right is not None:
+#                 solve(node.right, deep+1, 'right') if dir != 'right' else solve(node.right, 1, 'right')
+#         solve(root, 0, '')
+#         return self.maxLength
+
+
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 38 Lowest Common Ancestor of a Binary Tree
+# class Solution:
+#     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+#         if root is None: return None
+#         if root == p or root == q:
+#             left = self.lowestCommonAncestor(root.left, p, q)
+#             right = self.lowestCommonAncestor(root.right, p, q)
+#             return root
+#         left = self.lowestCommonAncestor(root.left, p, q)
+#         right = self.lowestCommonAncestor(root.right, p, q)
+#         if left is not None and right is not None: return root
+#         if left is not None and left == root.left: return left
+#         if right is not None and right == root.right: return right
+#         if left is not None: return left
+#         if right is not None: return right
+
+
+# https://leetcode.com/problems/binary-tree-right-side-view/description/?envType=study-plan-v2&envId=leetcode-75
+# 39 Binary Tree Right Side View
+# from collections import deque
+# class Solution:
+#     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+#         queue = deque()
+#         if root is None:
+#             return []
+#         if root.left is None and root.right is None:
+#             return [root.val]
+#         result = []
+#         queue.append(root)
+#         while queue:
+#             child_queue = deque()
+#             prev = -1
+#             while queue:
+#                 curr = queue.popleft()
+#                 if curr.left is not None:
+#                     child_queue.append(curr.left)
+#                 if curr.right is not None:
+#                     child_queue.append(curr.right)
+#                 prev = curr
+#             result.append(prev.val)
+#             queue = child_queue
+#         return result
+
+
+# https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 40 Maximum Level Sum of a Binary Tree
+# class Solution:
+#     def maxLevelSum(self, root: Optional[TreeNode]) -> List[float]:
+#         level_sum = defaultdict(int)
+#
+#         for lvl, val in self.inorder(root):
+#             level_sum[lvl + 1] += val
+#
+#         return max(level_sum, key=lambda x: (level_sum[x], -x))
+#
+#     @classmethod
+#     def inorder(cls, tree: TreeNode | None, level: int = 0):
+#         if tree is not None:
+#             yield from cls.inorder(tree.left, level + 1)
+#             yield level, tree.val
+#             yield from cls.inorder(tree.right, level + 1)
+
+
+# https://leetcode.com/problems/search-in-a-binary-search-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 41 Search in a Binary Search Tree
+# class Solution:
+#     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+#         # null check && considering serching value is not available in the tree
+#         if not root:
+#             return
+#         # considering the serching value is in right side of the tree
+#         if val>root.val:
+#             return self.searchBST(root.right,val)
+#         # considering the serching value is in right side of the tree
+#         elif val<root.val:
+#             return self.searchBST(root.left,val)
+#         #return if value exist
+#         return root
+
+
+# https://leetcode.com/problems/delete-node-in-a-bst/description/?envType=study-plan-v2&envId=leetcode-75
+# 42 Delete Node in a BST
+# class Solution:
+#     def smallestDescendant(self, root):
+#         while root.left:
+#             root = root.left
+#         return root
+#     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+#         if not root:
+#             return
+#         else:
+#             # Checks for Lesser value
+#             if root.val > key:
+#                 root.left = self.deleteNode(root.left, key)
+#             # Checks for Greater value
+#             elif root.val < key:
+#                 root.right = self.deleteNode(root.right, key)
+#             # Checks if we have reached the node we want to delete
+#             else:
+#                 # First we check if only 1 child node is present
+#                 if not root.left:
+#                     root = root.right
+#                 elif not root.right:
+#                     root = root.left
+#                 else:
+#                 # If both the children are present then we find the
+#                 # smallest child in the right child and assign it's
+#                 # value to node and recursively delete that child
+#                 # until we have reach node with 1 child or leaf node
+#                     temp = self.smallestDescendant(root.right)
+#                     root.val = temp.val
+#                     root.right = self.deleteNode(root.right, temp.val)
+#             return root
+
+
+# https://leetcode.com/problems/keys-and-rooms/?envType=study-plan-v2&envId=leetcode-75
+# 43 Keys and Rooms
+# class Solution:
+#     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+#         k = new = set(rooms[0])
+#         while len(k) < len(rooms) - 1:
+#             new = reduce(
+#                 lambda a, b: a.union(b), (set(rooms[n]) for n in new), set()
+#             ) - k.union({0})
+#             if not new:
+#                 return False
+#             k.update(new)
+#         return True
+
+
+# https://leetcode.com/problems/number-of-provinces/description/?envType=study-plan-v2&envId=leetcode-75
+# 44 Number of Provinces
+# class UnionFind(object):
+#
+#     def __init__(self, parents: list, rank: list):
+#         self.parents = parents
+#         self.rank = rank
+#     def find(self, node):
+#         parent = node
+#         while parent != self.parents[parent]:
+#             # don't get confused by that line
+#             # this is just a path compression
+#             self.parents[parent] = self.parents[self.parents[parent]]
+#             parent = self.parents[parent]
+#         return parent
+#     def union(self, node1, node2):
+#         first, second = self.find(node1), self.find(node2)
+#         if first == second: return 0
+#         if self.rank[first] > self.rank[second]:
+#             self.parents[second] = first
+#             self.rank[first] += self.rank[second]
+#         else:
+#             self.parents[first] = second
+#             self.rank[second] += self.rank[first]
+#         return 1
+# class Solution:
+#     def findCircleNum(self, isConnected: List[List[int]]) -> int:
+#         parents = [node for node in range(len(isConnected))]
+#         rank = [1] * len(parents)
+#         unionFind = UnionFind(parents=parents, rank=rank)
+#         result = len(parents)
+#         for edge1 in range(len(isConnected)):
+#             for otherEdge in range(len(isConnected)):
+#                 if isConnected[edge1][otherEdge] == 1:
+#                     result -= unionFind.union(edge1, otherEdge)
+#         return result
+
+
+# https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/?envType=study-plan-v2&envId=leetcode-75
+# 45 Reorder Routes to Make All Paths Lead to the City Zero
+# class Solution:
+#     def minReorder(self, n: int, connections: List[List[int]]) -> int:
+#         reachables = {0}
+#         reorder = 0
+#         stack = []
+#         while connections:
+#             a, b = connections.pop()
+#             if b in reachables:
+#                 reachables.add(a)
+#             elif a in reachables:
+#                 reachables.add(b)
+#                 reorder += 1
+#             else:
+#                 stack.append([a,b])
+#             if len(connections) == 0:
+#                 connections = stack
+#                 stack = []
+#         return reorder
+
+
+# https://leetcode.com/problems/evaluate-division/description/?envType=study-plan-v2&envId=leetcode-75
+# 46 Evaluate Division
+# class Solution:
+#     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+#         #   No division by zero
+#         adjacencyList = collections.defaultdict(
+#             list)  # A defaultdict is a dictionary-like object that automatically initializes values for nonexistent keys
+#         for i, eq in enumerate(equations):
+#             a, b = eq  # Each equation has two values
+#             adjacencyList[a].append([b, values[i]])  # Append [b,value(a/b)]
+#             adjacencyList[b].append([a, 1 / values[i]])  # b/a will be equal to 1 / (a/b)
+#         print(adjacencyList)
+#         def bfs(src, trg):
+#             if src not in adjacencyList or trg not in adjacencyList:
+#                 return -1
+#             q = deque()
+#             visited = set()
+#             q.append([src, 1])  # I'll append a node with the weight upto that node
+#             visited.add(src)
+#             while q:
+#                 n, w = q.popleft()  # Neighbor, Weight
+#                 if n == trg:
+#                     return w
+#                 for neighbor, weight in adjacencyList[n]:  # Iterating over the adjacency List of that particular node
+#                     if neighbor not in visited:
+#                         q.append([neighbor, w * weight])
+#                         visited.add(n)
+#             return -1
+#         return [bfs(query[0], query[1]) for query in queries]
+
+
+
+
+
+
+
 
 
 

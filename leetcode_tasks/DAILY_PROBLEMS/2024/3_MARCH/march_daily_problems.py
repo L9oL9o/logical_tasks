@@ -1,5 +1,7 @@
 # 01 MARCH
 # https://leetcode.com/problems/maximum-odd-binary-number/description/?envType=daily-question&envId=2024-03-01
+from builtins import list
+
 
 # class Solution:
 #     def maximumOddBinaryNumber(self, s: str) -> str:
@@ -8,6 +10,13 @@
 
 
 # 02 MARCH
+# https://leetcode.com/problems/squares-of-a-sorted-array/description/?envType=daily-question&envId=2024-03-02
+# ***************
+# class Solution:
+#     def sortedSquares(self, nums: List[int]) -> List[int]:
+#         numes = [i ** 2 for i in nums]
+#         return numes.sort()
+
 
 # 03 MARCH
 
