@@ -884,24 +884,65 @@
 #         return [bfs(query[0], query[1]) for query in queries]
 
 
+# https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/description/?envType=study-plan-v2&envId=leetcode-75
+# 47 Nearest Exit from Entrance in Maze
+# class Solution:
+#     def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
+#         m = len(maze)
+#         n = len(maze[0])
+#         queue = collections.deque()
+#         queue.append((entrance[0], entrance[1], 0))
+#         visited = set()
+#         visited.add((entrance[0], entrance[1]))
+#         while queue:
+#             for _ in range(len(queue)):
+#                 r, c, level = queue.popleft()
+#                 if [r, c] != entrance:
+#                     if r == 0 or r == m - 1 or c == 0 or c == n - 1:
+#                         return level
+#                 for nr, nc in [(r, c + 1), (r, c - 1), (r + 1, c), (r - 1, c)]:
+#                     if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in visited and maze[nr][nc] == '.':
+#                         queue.append((nr, nc, level + 1))
+#                         visited.add((nr, nc))
+#         return -1
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# https://leetcode.com/problems/rotting-oranges/description/?envType=study-plan-v2&envId=leetcode-75
+# 48 Rotting Oranges
+# class Solution:
+#     def orangesRotting(self, grid: List[List[int]]) -> int:
+#         m, n = len(grid), len(grid[0])
+#         visited = grid
+#         q = collections.deque()
+#         countFreshOrange = 0
+#         for i in range(m):
+#             for j in range(n):
+#                 if visited[i][j] == 2:
+#                     q.append((i, j))
+#                 if visited[i][j] == 1:
+#                     countFreshOrange += 1
+#         if countFreshOrange == 0:
+#             return 0
+#         if not q:
+#             return -1
+#         minutes = -1
+#         dirs = [(1, 0), (-1, 0), (0, -1), (0, 1)]
+#         while q:
+#             size = len(q)
+#             while size > 0:
+#                 x, y = q.popleft()
+#                 size -= 1
+#                 for dx, dy in dirs:
+#                     i, j = x + dx, y + dy
+#                     if 0 <= i < m and 0 <= j < n and visited[i][j] == 1:
+#                         visited[i][j] = 2
+#                         countFreshOrange -= 1
+#                         q.append((i, j))
+#             minutes += 1
+#
+#         if countFreshOrange == 0:
+#             return minutes
+#         return -1
 
 
 
