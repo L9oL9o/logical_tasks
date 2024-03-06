@@ -72,6 +72,17 @@ from builtins import list
 
 
 # 06 MARCH
+# https://leetcode.com/problems/linked-list-cycle/description/?envType=daily-question&envId=2024-03-06
+
+# class Solution:
+#     def hasCycle(self, head: Optional[ListNode]) -> bool:
+#         fast = slow = head
+#         while fast and fast.next:
+#             slow, fast = slow.next, fast.next.next
+#             if fast == slow:
+#                 return True
+#         return False
+
 
 # 07 MARCH
 

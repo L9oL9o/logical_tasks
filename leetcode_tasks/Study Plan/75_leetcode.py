@@ -945,14 +945,66 @@
 #         return -1
 
 
+# https://leetcode.com/problems/kth-largest-element-in-an-array/description/?envType=study-plan-v2&envId=leetcode-75
+# 49 Kth Largest Element in an Array
+# class Solution:
+#     def findKthLargest(self, nums, k):
+#         return sorted(nums, reverse=True)[k-1]
 
 
+# https://leetcode.com/problems/smallest-number-in-infinite-set/description/?envType=study-plan-v2&envId=leetcode-75
+# 50 Smallest Number in Infinite Set
+# class SmallestInfiniteSet:
+#
+#     def __init__(self):
+#         self.min = 1
+#         self.added = set()
+#
+#     def popSmallest(self) -> int:
+#         to_pop = self.min
+#         if len(self.added) > 0:
+#             to_pop = min(min(self.added), to_pop)
+#
+#         self.added.discard(to_pop)
+#         if to_pop == self.min:
+#             self.min += 1
+#
+#         return to_pop
+#
+#     def addBack(self, num: int) -> None:
+#         if num < self.min:
+#             self.added.add(num)
 
 
-
-
-
-
+# https://leetcode.com/problems/maximum-subsequence-score/description/?envType=study-plan-v2&envId=leetcode-75
+# 51 Maximum Subsequence Score
+# import heapq
+# class Solution:
+#     def maxScore(self, nums1: List[int], nums2: List[int], k: int) -> int:
+#         lst=list(zip(nums2,nums1))
+#         lst.sort(key=lambda x:(-x[0],-x[1]))
+#         flst=[]
+#         heapq.heapify(flst)
+#         i=0
+#         sm=0
+#         ef=float("infinity")
+#         prd=float("-infinity")
+#         while i<k:
+#             x=lst.pop(0)
+#             heapq.heappush(flst,x[1])
+#             ef=min(ef,x[0])
+#             sm+=x[1]
+#             i+=1
+#         prd=max(prd,sm*ef)
+#         while lst:
+#             x=heapq.heappop(flst)
+#             sm-=x
+#             y=lst.pop(0)
+#             heapq.heappush(flst,y[1])
+#             ef=min(ef,y[0])
+#             sm+=y[1]
+#             prd=max(prd,sm*ef)
+#         return prd
 
 
 
