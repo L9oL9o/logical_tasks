@@ -85,6 +85,17 @@ from builtins import list
 
 
 # 07 MARCH
+# https://leetcode.com/problems/middle-of-the-linked-list/?envType=daily-question&envId=2024-03-07
+
+# class Solution:
+#     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         slow_pointer = head
+#         fast_pointer = head
+#         while fast_pointer is not None and fast_pointer.next is not None:
+#             slow_pointer = slow_pointer.next
+#             fast_pointer = fast_pointer.next.next
+#         return slow_pointer
+
 
 # 08 MARCH
 

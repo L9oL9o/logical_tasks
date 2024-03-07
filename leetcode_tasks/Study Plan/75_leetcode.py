@@ -1007,6 +1007,112 @@
 #         return prd
 
 
+# https://leetcode.com/problems/total-cost-to-hire-k-workers/description/?envType=study-plan-v2&envId=leetcode-75
+# 52 Total Cost to Hire K Workers
+# class Solution:
+#     def totalCost(self, costs: list[int], k: int, candidates: int) -> int:
+#         n = len(costs)
+#         l, r = candidates, n - candidates - 1
+#         l_bucket = zip(range(l), repeat(0))
+#         r_bucket = zip(range(max(l, r + 1), n), repeat(1))
+#         hq = [(costs[idx], bucket) for idx, bucket in chain(l_bucket, r_bucket)]
+#         heapq.heapify(hq)
+#         cost = 0
+#         for _ in range(k):
+#             c, b = heapq.heappop(hq)
+#             cost += c
+#             if l > r: continue
+#             idx = (l, r)[b]
+#             l, r = (l, r - 1) if b else (l + 1, r)
+#             heapq.heappush(hq, (costs[idx], b))
+#         return cost
+
+
+# https://leetcode.com/problems/guess-number-higher-or-lower/solutions/?envType=study-plan-v2&envId=leetcode-75
+# 53 Guess Number Higher or Lower
+# class Solution:
+#     def guessNumber(self, n: int) -> int:
+#         low, high = 1, n
+#         while low <= high:
+#             mid = (low + high) // 2
+#             G = guess(mid)
+#             if G == 0:
+#                 return mid
+#             elif G == -1:
+#                 high = mid - 1
+#             else:
+#                 low = mid + 1
+#         return mid
+
+
+# https://leetcode.com/problems/successful-pairs-of-spells-and-potions/description/?envType=study-plan-v2&envId=leetcode-75
+# 54 Successful Pairs of Spells and Potions
+# class Solution:
+#     def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+#         n, m = len(spells), len(potions)
+#         pairs = [0]*n
+#         potions.sort()
+#         for i in range(n):
+#             spell = spells[i]
+#             left = 0
+#             right = m - 1
+#             while left <= right:
+#                 mid = left+(right-left)//2
+#                 product = spell*potions[mid]
+#                 if product >= success:
+#                     right = mid - 1
+#                 else:
+#                     left = mid + 1
+#             pairs[i] = m - left
+#         return pairs
+
+
+# https://leetcode.com/problems/find-peak-element/description/?envType=study-plan-v2&envId=leetcode-75
+# 55 Find Peak Element
+# class Solution:
+#     def findPeakElement(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         low, high = 0, n - 1
+#         while low <= high:
+#             mid = ((high - low) // 2) + low
+#             if mid < n - 1 and nums[mid] < nums[mid + 1]:
+#                 low = mid + 1
+#             elif mid > 0 and nums[mid] < nums[mid - 1]:
+#                 high = mid - 1
+#             else:
+#                 return mid
+
+
+# https://leetcode.com/problems/koko-eating-bananas/description/?envType=study-plan-v2&envId=leetcode-75
+# 56 Koko Eating Bananas
+# class Solution:
+#     def f(self,p,k):
+#         t = 0
+#         for i in p:
+#             t+=ceil(i/k)
+#         return t
+#     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+#         s = 1
+#         e = max(piles)
+#
+#         while(s<=e):
+#             m = s + (e-s)//2
+#             if self.f(piles,m)>h:
+#                 s = m+1
+#             else:
+#                 e = m-1
+#         return s
+
+
+
+
+
+
+
+
+
+
+
 
 
 
