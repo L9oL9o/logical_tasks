@@ -1104,27 +1104,246 @@
 #         return s
 
 
+# https://leetcode.com/problems/letter-combinations-of-a-phone-number/solutions/?envType=study-plan-v2&envId=leetcode-75
+# 57 Letter Combinations of a Phone Number
+# class Solution:
+#     def letterCombinations(self, digits: str) -> List[str]:
+#         if not digits:
+#             return []
+#         m = {'2':'abc','3':'def','4':'ghi','5':'jkl','6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}
+#         res = []
+#
+#         def backtrack(curr,i):
+#             if len(curr)==len(digits):
+#                 res.append(curr)
+#                 return
+#             for ch in m[digits[i]]:
+#                 backtrack(curr+ch,i+1)
+#
+#         backtrack("",0)
+#         return res
 
 
+# https://leetcode.com/problems/combination-sum-iii/description/?envType=study-plan-v2&envId=leetcode-75
+# 58 Combination Sum III
+# class Solution:
+#     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+#         return [
+#             x
+#             for x in [
+#                 reduce(lambda x, y: x + y, s)
+#                 for s in product(*[[[], [i]] for i in range(1, 10)])
+#             ]
+#             if len(x) == k and sum(x) == n
+#         ]
 
 
+# https://leetcode.com/problems/n-th-tribonacci-number/description/?envType=study-plan-v2&envId=leetcode-75
+# 59 N-th Tribonacci Number
+# class Solution:
+#     def tribonacci(self, n: int) -> int:
+#         if n < 3:
+#             return 1 if n else 0
+#         a, b, c = 0, 1, 1
+#         for _ in range(n - 2):
+#             a, b, c = b, c, a + b + c
+#         return c
 
 
+# https://leetcode.com/problems/min-cost-climbing-stairs/description/?envType=study-plan-v2&envId=leetcode-75
+# 60 Min Cost Climbing Stairs
+# class Solution:
+#     def minCostClimbingStairs(self, cost: List[int]) -> int:
+#         n = len(cost)
+#         for i in range(2, len(cost)):
+#             cost[i] += min(cost[i - 1], cost[i - 2])
+#         return min(cost[n - 1], cost[n - 2])
 
 
+# https://leetcode.com/problems/house-robber/description/?envType=study-plan-v2&envId=leetcode-75
+# 61 House Robber
+# class Solution:
+#     def rob(self, nums: List[int]) -> int:
+#         return reduce(lambda a, x: (a[1], max(a[1], a[0] + x)), nums, (0, 0))[1]
 
 
+# https://leetcode.com/problems/domino-and-tromino-tiling/description/?envType=study-plan-v2&envId=leetcode-75
+# 62 Domino and Tromino Tiling
+# class Solution(object):
+#     def numTilings(self, n):
+#         dp, dpa = [1, 2] + [0] * n, [1] * n
+#         for i in range(2, n):
+#             dp[i] = (dp[i - 1] + dp[i - 2] + dpa[i - 1] * 2) % 1000000007
+#             dpa[i] = (dp[i - 2] + dpa[i - 1]) % 1000000007
+#         return dp[n - 1]
 
 
+# https://leetcode.com/problems/unique-paths/description/?envType=study-plan-v2&envId=leetcode-75
+# 63 Unique Paths
+# class Solution:
+#     def uniquePaths(self, m: int, n: int) -> int:
+#         oldrow = [1] * n
+#         for i in range(m - 1):
+#             newrow = [1] * n
+#             for j in range(n - 2, -1, -1):
+#                 newrow[j] = newrow[j + 1] + oldrow[j]
+#             oldrow = newrow
+#         return oldrow[0]
 
 
+# https://leetcode.com/problems/longest-common-subsequence/description/?envType=study-plan-v2&envId=leetcode-75
+# 64 Longest Common Subsequence
+# class Solution:
+#     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+#         #LCS is a standard question for DP
+#         n=len(text1)
+#         m=len(text2)
+#         dp=[[-1]*m for _ in range(n)]
+#         def lcs(i, j):
+#             nonlocal n, m, dp
+#             if i>=n or j>=m: return 0
+#             if dp[i][j]!=-1: return dp[i][j]
+#             if text1[i]==text2[j]:
+#                 dp[i][j]=1+lcs(i+1, j+1)
+#                 return dp[i][j]
+#             else:
+#                 dp[i][j]= max(lcs(i, j+1), lcs(i+1, j))
+#                 return dp[i][j]
+#         return lcs(0, 0)
 
+
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/?envType=study-plan-v2&envId=leetcode-75
+# 65 Best Time to Buy and Sell Stock with Transaction Fee
+# class Solution:
+#     def maxProfit(self, prices: List[int], fee: int) -> int:
+#         buy = float('-inf')
+#         sell = 0
+#         for price in prices:
+#             buy = max(buy, sell - price)
+#             sell = max(sell, buy + price - fee)
+#         return sell
+
+
+# https://leetcode.com/problems/edit-distance/description/?envType=study-plan-v2&envId=leetcode-75
+# 66 Edit Distance
+# class Solution:
+#   def minDistance(self, word1: str, word2: str) -> int:
+#     m = len(word1)
+#     n = len(word2)
+#     dp = [[0] * (n + 1) for _ in range(m + 1)]
+#
+#     for i in range(1, m + 1):
+#       dp[i][0] = i
+#
+#     for j in range(1, n + 1):
+#       dp[0][j] = j
+#
+#     for i in range(1, m + 1):
+#       for j in range(1, n + 1):
+#         if word1[i - 1] == word2[j - 1]:
+#           dp[i][j] = dp[i - 1][j - 1]
+#         else:
+#           dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1
+#
+#     return dp[m][n]
+
+
+# https://leetcode.com/problems/counting-bits/?envType=study-plan-v2&envId=leetcode-75
+# 67 Counting Bits
+# class Solution:
+#     def countBits(self, n: int) -> List[int]:
+#         ans = [0] * (n + 1)
+#         for i in range(1, n + 1):
+#             ans[i] = ans[i >> 1] + (i & 1)
+#         return ans
+
+
+# https://leetcode.com/problems/single-number/description/?envType=study-plan-v2&envId=leetcode-75
+# 68 Single Number
+# class Solution:
+#     def singleNumber(self, nums: List[int]) -> int:
+#         xor = 0
+#         for num in nums:
+#             xor ^= num
+#
+#         return xor
+
+
+# https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/description/?envType=study-plan-v2&envId=leetcode-75
+# 69 Minimum Flips to Make a OR b Equal to c
+# class Solution:
+#     def minFlips(self, a: int, b: int, c: int) -> int:
+#         m = (a|b)^c
+#         x = a&m
+#         y = b&m
+#         z = (~(a|b))&m
+#         return sum(v.bit_count() for v in (x,y,z))
+
+
+# https://leetcode.com/problems/implement-trie-prefix-tree/description/?envType=study-plan-v2&envId=leetcode-75
+# 70 Implement Trie (Prefix Tree)
+# class Trie:
+#
+#     def __init__(self):
+#         self.t = []
+#
+#     def insert(self, word: str) -> None:
+#         bisect.insort(self.t, word)
+#
+#     def search(self, word: str) -> bool:
+#         i = bisect.bisect(self.t, word)
+#         return i>0 and self.t[i-1] == word
+#
+#     def startsWith(self, prefix: str) -> bool:
+#         j = bisect.bisect_left(self.t, prefix)
+#         return j<len(self.t) and self.t[j].startswith(prefix)
+
+
+# https://leetcode.com/problems/search-suggestions-system/description/?envType=study-plan-v2&envId=leetcode-75
+# 71 Search Suggestions System
+# class Solution:
+#     def suggestedProducts(self, p: List[str], s: str) -> List[List[str]]:
+#         p.sort()
+#         ret = []
+#         for i in range(1, len(s) + 1):
+#             j=bisect_left(p, s[:i])
+#             ret.append([x for x in p[j:j+3] if x.startswith(s[:i])])
+#         return ret
+
+
+# https://leetcode.com/problems/non-overlapping-intervals/description/?envType=study-plan-v2&envId=leetcode-75
+# 72
+# class Solution:
+#     def eraseOverlapIntervals(self, points: List[List[int]]) -> int:
+#         ans = 0
+#         arrow = -math.inf
+#         for point in sorted(points, key = lambda x:x[1]):
+#             if(point[0] >= arrow):
+#                 arrow = point[1]
+#             else:
+#                 ans+=1
+#         return ans
+
+
+# https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/?envType=study-plan-v2&envId=leetcode-75
+# 73 Minimum Number of Arrows to Burst Balloons
+# class Solution:
+#     def findMinArrowShots(self, points: List[List[int]]) -> int:
+#         n=len(points)
+#         points = sorted(points, key = lambda x: x[1])
+#         maxa=-float('inf')
+#         ans=0
+#         for i in range(0,n):
+#             if maxa<points[i][0]:
+#                 ans+=1
+#                 maxa=points[i][1]
+#         return ans
 
 
 
 
 # https://leetcode.com/problems/online-stock-span/description/?envType=study-plan-v2&envId=leetcode-75
-# 74
+# 74 Daily Temperatures
 # class StockSpanner:
 #     def __init__(self):
 #         self.memo = []
@@ -1143,7 +1362,7 @@
 
 
 # https://leetcode.com/problems/daily-temperatures/description/?envType=study-plan-v2&envId=leetcode-75
-# 75
+# 75 Online Stock Span
 # class Solution:
 #     def dailyTemperatures(self, t: List[int]) -> List[int]:
 #         n = len(t)
