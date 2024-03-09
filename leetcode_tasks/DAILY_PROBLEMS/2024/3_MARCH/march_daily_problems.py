@@ -98,8 +98,44 @@ from builtins import list
 
 
 # 08 MARCH
+# https://leetcode.com/problems/count-elements-with-maximum-frequency/description/?envType=daily-question&envId=2024-03-08
+
+# class Solution:
+#     def maxFrequencyElements(self, nums: List[int]) -> int:
+#         from collections import defaultdict
+#
+#         counts = defaultdict(int)
+#         max_count = 0
+#
+#         for num in nums:
+#             counts[num] += 1
+#             max_count = max(max_count, counts[num])
+#
+#         ans = 0
+#         for v in counts.values():
+#             if v == max_count:
+#                 ans += v
+#
+#         return ans
+
 
 # 09 MARCH
+# https://leetcode.com/problems/minimum-common-value/description/?envType=daily-question&envId=2024-03-09
+
+# class Solution:
+#     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+#         n1, n2 = len(nums1), len(nums2)
+#         p1, p2 = 0, 0
+#         while p1 < n1 and p2 < n2:
+#             x = nums1[p1]
+#             y = nums2[p2]
+#             if x == y:
+#                 return x
+#             elif x > y:
+#                 p2 += 1
+#             else:
+#                 p1 += 1
+#         return -1
 
 # 10 MARCH
 
