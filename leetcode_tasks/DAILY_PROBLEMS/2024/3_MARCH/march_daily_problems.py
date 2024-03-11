@@ -137,6 +137,7 @@ from builtins import list
 #                 p1 += 1
 #         return -1
 
+
 # 10 MARCH
 # https://leetcode.com/problems/intersection-of-two-arrays/description/?envType=daily-question&envId=2024-03-10
 
@@ -148,6 +149,15 @@ from builtins import list
 
 
 # 11 MARCH
+# https://leetcode.com/problems/custom-sort-string/description/?envType=daily-question&envId=2024-03-11
+
+# class Solution:
+#     def customSortString(self, order: str, s: str) -> str:
+#         ctr = Counter(s)
+#         ans = [ch * ctr[ch] for ch in order]
+#         ans.extend(filter(lambda x: x not in order, s))
+#         return ''.join(ans)
+
 
 # 12 MARCH
 
