@@ -187,6 +187,16 @@ from builtins import list
 
 
 # 13 MARCH
+# https://leetcode.com/problems/find-the-pivot-integer/description/?envType=daily-question&envId=2024-03-13
+
+# class Solution:
+#     def pivotInteger(self, n: int) -> int:
+#         x = sqrt(n * (n + 1) / 2)
+#         if x % 1 != 0:
+#             return -1
+#         else:
+#             return int(x)
+
 
 # 14 MARCH
 
