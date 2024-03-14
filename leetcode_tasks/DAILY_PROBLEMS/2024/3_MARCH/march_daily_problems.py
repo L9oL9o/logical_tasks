@@ -199,6 +199,17 @@ from builtins import list
 
 
 # 14 MARCH
+# https://leetcode.com/problems/binary-subarrays-with-sum/description/?envType=daily-question&envId=2024-03-14
+
+# class Solution:
+#     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+#         zeros, prev = [], -1
+#         for i, num in enumerate(nums+[1]):
+#             if num:
+#                 zeros.append(i-prev)
+#                 prev = i
+#         return sum(cnt*zeros[i] for i, cnt in enumerate(zeros[goal:])) if goal else sum(cnt*(cnt-1)//2 for cnt in zeros)
+
 
 # 15 MARCH
 
