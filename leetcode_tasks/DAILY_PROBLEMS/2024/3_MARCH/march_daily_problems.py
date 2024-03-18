@@ -275,6 +275,20 @@ from builtins import list
 
 
 # 18 MARCH
+# https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/?envType=daily-question&envId=2024-03-18
+
+# class Solution:
+#     def findMinArrowShots(self, points: List[List[int]]) -> int:
+#         n=len(points)
+#         points = sorted(points, key = lambda x: x[1])
+#         maxa=-float('inf')
+#         ans=0
+#         for i in range(0,n):
+#             if maxa<points[i][0]:
+#                 ans+=1
+#                 maxa=points[i][1]
+#         return ans
+
 
 # 19 MARCH
 
