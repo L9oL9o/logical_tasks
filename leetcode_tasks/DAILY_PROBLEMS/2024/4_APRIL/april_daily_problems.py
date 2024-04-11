@@ -132,16 +132,79 @@
 
 
 # 08 APRIL
+# https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/description/?envType=daily-question&envId=2024-04-08
+
+# class Solution:
+#     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+#         count = [0, 0]
+#         for student in students:
+#             count[student] += 1
 #
+#         for i in range(len(sandwiches)):
+#             if count[sandwiches[i]] == 0:
+#                 return len(sandwiches) - i
+#             count[sandwiches[i]] -= 1
+#
+#         return 0
+
 
 # 09 APRIL
+# https://leetcode.com/problems/time-needed-to-buy-tickets/description/?envType=daily-question&envId=2024-04-09
+
+# class Solution:
+#     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+#         total = 0
 #
+#         for i, x in enumerate(tickets):
+#             if i <= k:
+#                 total += min(tickets[i], tickets[k])
+#             else:
+#                 total += min(tickets[i], tickets[k] - 1)
+#
+#         return total
+
 
 # 10 APRIL
+# https://leetcode.com/problems/reveal-cards-in-increasing-order/description/?envType=daily-question&envId=2024-04-10
+
+# class Solution:
+#     def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+#         # Sort the deck in increasing order
+#         deck.sort()
 #
+#         n = len(deck)
+#         result = [0] * n
+#         indices = deque(range(n))
+#
+#         for card in deck:
+#             idx = indices.popleft()  # Get the next available index
+#             result[idx] = card  # Place the card in the result array
+#             if indices:  # If there are remaining indices in the deque
+#                 indices.append(indices.popleft())  # Move the used index to the end of deque
+#
+#         return result
+
 
 # 11 APRIL
+# https://leetcode.com/problems/remove-k-digits/description/?envType=daily-question&envId=2024-04-11
+
+# class Solution:
+#     def removeKdigits(self, num: str, k: int) -> str:
+#         stack = []
+#         for c in num:
+#             while k and stack and stack[-1] > c:
+#                 stack.pop()
+#                 k -= 1
+#             stack.append(c)
+#         if k:
+#             stack = stack[:-k]
+#         i = 0
+#         while i < len(stack) and stack[i] == "0":
+#             i += 1
 #
+#         ret = "".join(stack[i:])
+#         return "0" if not ret else ret
+
 
 # 12 APRIL
 #
