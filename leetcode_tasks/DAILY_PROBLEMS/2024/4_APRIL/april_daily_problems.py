@@ -229,10 +229,59 @@
 
 
 # 13 APRIL
+# https://leetcode.com/problems/maximal-rectangle/description/?envType=daily-question&envId=2024-04-13
+
+# class Solution:
+#     def maximalRectangle(self, matrix: List[List[str]]) -> int:
+#         r, c = len(matrix), len(matrix[0])
+#         if r == 1 and c == 1:
+#             if matrix[0][0] == '1':
+#                 return 1
+#             else:
+#                 return 0
+#         h = [0] * (c + 1)
+#         maxArea = 0
 #
+#         for i, row in enumerate(matrix):
+#             st = [-1]
+#             row.append('0')
+#             # build h
+#             for j, x in enumerate(row):
+#                 if x == '1':
+#                     h[j] += 1
+#                 else:
+#                     h[j] = 0
+#                 # mononotonic stack has at leat element -1
+#                 while len(st) > 1 and (j == c or h[j] < h[st[-1]]):
+#                     m = st[-1]
+#                     st.pop()
+#                     w = j - st[-1] - 1
+#                     area = h[m] * w
+#                     maxArea = max(maxArea, area)
+#                 st.append(j)
+#         return maxArea
+
 
 # 14 APRIL
+# https://leetcode.com/problems/sum-of-left-leaves/description/?envType=daily-question&envId=2024-04-14
+
+# class Solution:
+#     def sumOfLeftLeaves(self, root: TreeNode) -> int:
+#         if not root:
+#             return 0
 #
+#         ans = 0
+#
+#         if root.left:
+#             if not root.left.left and not root.left.right:
+#                 ans += root.left.val
+#             else:
+#                 ans += self.sumOfLeftLeaves(root.left)
+#
+#         ans += self.sumOfLeftLeaves(root.right)
+#
+#         return ans
+
 
 # 15 APRIL
 #
