@@ -284,7 +284,24 @@
 
 
 # 15 APRIL
+# https://leetcode.com/problems/sum-root-to-leaf-numbers/description/?envType=daily-question&envId=2024-04-15
+
+# class Solution:
+#     def sumNumbers(self, root: TreeNode) -> int:
+#         def dfs(node, path):
+#             nonlocal ans
+#             if not node:
+#                 return
+#             if not node.left and not node.right:
+#                 ans += path * 10 + node.val
+#                 return
+#             dfs(node.left, path * 10 + node.val)
+#             dfs(node.right, path * 10 + node.val)
 #
+#         ans = 0
+#         dfs(root, 0)
+#         return ans
+
 
 # 16 APRIL
 #
