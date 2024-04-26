@@ -576,10 +576,55 @@
 
 
 # 25 APRIL
+# https://leetcode.com/problems/longest-ideal-subsequence/?envType=daily-question&envId=2024-04-25
+
+# class Solution:
+#     def longestIdealString(self, s: str, k: int) -> int:
+#         dp = [0] * 27
+#         n = len(s)
 #
+#         for i in range(n - 1, -1, -1):
+#             cc = s[i]
+#             idx = ord(cc) - ord('a')
+#             maxi = float('-inf')
+#
+#             left = max((idx - k), 0)
+#             right = min((idx + k), 26)
+#
+#             for j in range(left, right + 1):
+#                 maxi = max(maxi, dp[j])
+#
+#             dp[idx] = maxi + 1
+#
+#         return max(dp)
+
 
 # 26 APRIL
+# https://leetcode.com/problems/minimum-falling-path-sum-ii/description/?envType=daily-question&envId=2024-04-26
+
+# class Solution:
+#     def minFallingPathSum(self, grid: List[List[int]]) -> int:
+#         n, res = len(grid), float('inf')
+#         dp = [[-1] * n for _ in range(n)]
 #
+#         for j in range(n):
+#             dp[0][j] = grid[0][j]
+#
+#         for i in range(1, n):
+#             for j in range(n):
+#                 temp = float('inf')
+#
+#                 for k in range(n):
+#                     if j != k:
+#                         temp = min(temp, grid[i][j] + dp[i - 1][k])
+#
+#                 dp[i][j] = temp
+#
+#         for j in range(n):
+#             res = min(res, dp[n - 1][j])
+#
+#         return res
+
 
 # 27 APRIL
 #
