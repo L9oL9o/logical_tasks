@@ -689,8 +689,47 @@
 
 
 # 29 APRIL
+# https://leetcode.com/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k/?envType=daily-question&envId=2024-04-29
+
+# class Solution:
+#     def minOperations(self, nums: List[int], k: int) -> int:
+#         final_xor = 0
+#         # XOR of all integers in the array.
+#         for n in nums:
+#             final_xor = final_xor ^ n
 #
+#         count = 0
+#         # Keep iterating until both k and final_xor becomes zero.
+#         while k or final_xor:
+#             # k % 2 returns the rightmost bit in k,
+#             # final_xor % 2 returns the rightmost bit in final_xor.
+#             # Increment counter, if the bits don't match.
+#             if (k % 2) != (final_xor % 2):
+#                 count += 1
+#
+#             # Remove the last bit from both integers.
+#             k //= 2
+#             final_xor //= 2
+#
+#         return count
+
 
 # 30 APRIL
-#
+# https://leetcode.com/problems/number-of-wonderful-substrings/description/?envType=daily-question&envId=2024-04-30
 
+# class Solution(object):
+#     def wonderfulSubstrings(self, word):
+#         count = [0] * 1024  # 2^10 to store XOR values
+#         result = 0
+#         prefix_xor = 0
+#         count[prefix_xor] = 1
+#
+#         for char in word:
+#             char_index = ord(char) - ord('a')
+#             prefix_xor ^= 1 << char_index
+#             result += count[prefix_xor]
+#             for i in range(10):
+#                 result += count[prefix_xor ^ (1 << i)]
+#             count[prefix_xor] += 1
+#
+#         return result
