@@ -50,15 +50,55 @@
 
 
 # 4 MAY
-#
+#https://leetcode.com/problems/boats-to-save-people/?envType=daily-question&envId=2024-05-04
+
+# class Solution:
+#     def numRescueBoats(self, p: List[int], limit: int) -> int:
+#         p.sort()
+#         x = 0
+#         l, r = 0, len(p) - 1
+#         while l <= r:
+#             x += 1
+#             if p[l] + p[r] <= limit:
+#                 l += 1
+#             r -= 1
+#         return x
 
 
 # 5 MAY
-#
+# https://leetcode.com/problems/delete-node-in-a-linked-list/description/?envType=daily-question&envId=2024-05-05
+
+# class Solution:
+#     def deleteNode(self, node: ListNode) -> None:
+#         node.val = node.next.val
+#         node.next = node.next.next
 
 
 # 6 MAY
+# https://leetcode.com/problems/remove-nodes-from-linked-list/description/?envType=daily-question&envId=2024-05-06
+
+# class Solution:
+#     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         stack = []
+#         current = head
 #
+#         while current:
+#             while stack and stack[-1].val < current.val:
+#                 stack.pop()
+#
+#             stack.append(current)
+#             current = current.next
+#
+#         dummy = ListNode(0)
+#         prev = dummy
+#
+#         for node in stack:
+#             prev.next = node
+#             prev = prev.next
+#
+#         prev.next = None
+#
+#         return dummy.next
 
 
 # 7 MAY
