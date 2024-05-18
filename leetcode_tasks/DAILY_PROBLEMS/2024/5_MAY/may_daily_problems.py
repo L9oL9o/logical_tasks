@@ -291,7 +291,19 @@
 
 
 # 18 MAY
-#
+# https://leetcode.com/problems/distribute-coins-in-binary-tree/description/?envType=daily-question&envId=2024-05-18
+
+# class Solution:
+#     def distributeCoins(self, root: Optional[TreeNode]) -> int:
+#         #move coins to parent DFS
+#         def f(root, parent):
+#             if root==None: return 0
+#             moves=f(root.left, root)+f(root.right, root)
+#             x=root.val-1
+#             if parent!=None: parent.val+=x
+#             moves+=abs(x)
+#             return moves
+#         return f(root, None)
 
 
 # 19 MAY
